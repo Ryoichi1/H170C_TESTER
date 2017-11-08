@@ -9,7 +9,9 @@ namespace H170C_Tester
 
     public class ViewModelMainWindow : BindableBase
     {
-        //試験中は作業者名を変更できないようにする
+        //メンテナンス画面で、カメラ設定ページと別のページを高速に遷移させると、カメラがヌルポで死ぬ
+        //カメラがdisposeしている最中は、別のカメラをスタートさせてはいけない
+        //カメラ設定ページに遷移したら、1～1.5秒は他のページに遷移できないようにする
         private bool _MainWinEnable = true;
         public bool MainWinEnable
         {
