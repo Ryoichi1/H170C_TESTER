@@ -246,10 +246,12 @@ namespace H170C_Tester
         }
 
 
-        private bool canExecute = true;
+        private bool canExecute = false;
 
         public async Task Stop()
         {
+            if (!canExecute) return;//カメラが起動していなければ何もしない
+
             canExecute = false;
             await Task.Run(() =>
             {
