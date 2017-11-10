@@ -142,9 +142,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DialogPic.xaml.cs">
-      <DependentUpon>DialogPic.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Page\Config\Camera2Conf.xaml.cs">
       <DependentUpon>Camera2Conf.xaml</DependentUpon>
     </Compile>
@@ -161,8 +158,9 @@
     <Compile Include="テスト項目\TestLed.cs" />
     <Compile Include="テスト項目\TestHarness.cs" />
     <Compile Include="テスト項目\書き込み.cs" />
-    <Compile Include="検査規格\Cam2Property.cs" />
-    <Compile Include="検査規格\Cam1Property.cs" />
+    <Compile Include="検査規格\CameraCommonProperty.cs" />
+    <Compile Include="検査規格\Camera2Property.cs" />
+    <Compile Include="検査規格\Camera1Property.cs" />
     <Compile Include="Page\Config\Conf.xaml.cs">
       <DependentUpon>Conf.xaml</DependentUpon>
     </Compile>
@@ -199,10 +197,6 @@
     <Compile Include="ViewModel\ViewModelTestStatus.cs" />
     <Compile Include="検査規格\Configuration.cs" />
     <Compile Include="検査規格\TestSpec.cs" />
-    <Page Include="DialogPic.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

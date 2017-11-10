@@ -36,8 +36,9 @@ namespace H170C_Tester
         public static Configuration Setting { get; set; }
         public static TestSpec TestSpec { get; set; }
 
-        public static Cam1Property cam1Prop { get; set; }
-        public static Cam2Property cam2Prop { get; set; }
+        public static Camera1Property cam1Prop { get; set; }
+        public static Camera2Property cam2Prop { get; set; }
+        public static CameraCommonProperty camCommonProp { get; set; }
 
         public static string CurrDir { get; set; }
 
@@ -97,8 +98,9 @@ namespace H170C_Tester
             TestSpec = Deserialize<TestSpec>(Constants.filePath_TestSpec);
 
             //カメラプロパティファイルのロード
-            cam1Prop = Deserialize<Cam1Property>(Constants.filePath_Camera1Property);
-            cam2Prop = Deserialize<Cam2Property>(Constants.filePath_Camera2Property);
+            cam1Prop = Deserialize<Camera1Property>(Constants.filePath_Camera1Property);
+            cam2Prop = Deserialize<Camera2Property>(Constants.filePath_Camera2Property);
+            camCommonProp = Deserialize<CameraCommonProperty>(Constants.filePath_CameraCommonProperty);
 
         }
 
@@ -155,8 +157,9 @@ namespace H170C_Tester
                 Serialization<Configuration>(Setting, Constants.filePath_Configuration);
 
                 //Cam1プロパティの保存
-                Serialization<Cam1Property>(State.cam1Prop, Constants.filePath_Camera1Property);
-                Serialization<Cam2Property>(State.cam2Prop, Constants.filePath_Camera2Property);
+                Serialization<Camera1Property>(State.cam1Prop, Constants.filePath_Camera1Property);
+                Serialization<Camera2Property>(State.cam2Prop, Constants.filePath_Camera2Property);
+                Serialization<CameraCommonProperty>(State.camCommonProp, Constants.filePath_CameraCommonProperty);
 
                 return true;
             }
@@ -172,20 +175,20 @@ namespace H170C_Tester
         public static void SetCam1Prop()
         {
             //cam0の設定
-            General.cam1.Brightness = cam1Prop.Brightness;
-            General.cam1.Contrast = cam1Prop.Contrast;
-            General.cam1.Hue = cam1Prop.Hue;
-            General.cam1.Saturation = cam1Prop.Saturation;
-            General.cam1.Sharpness = cam1Prop.Sharpness;
-            General.cam1.Gamma = cam1Prop.Gamma;
-            General.cam1.Gain = cam1Prop.Gain;
-            General.cam1.Exposure = cam1Prop.Exposure;
-            General.cam1.Theta = cam1Prop.Theta;
-            General.cam1.BinLevel = cam1Prop.BinLevel;
+            General.cam1.Brightness = camCommonProp.Brightness;
+            General.cam1.Contrast = camCommonProp.Contrast;
+            General.cam1.Hue = camCommonProp.Hue;
+            General.cam1.Saturation = camCommonProp.Saturation;
+            General.cam1.Sharpness = camCommonProp.Sharpness;
+            General.cam1.Gamma = camCommonProp.Gamma;
+            General.cam1.Gain = camCommonProp.Gain;
+            General.cam1.Exposure = camCommonProp.Exposure;
+            General.cam1.Theta = camCommonProp.Theta;
+            General.cam1.BinLevel = camCommonProp.BinLevel;
 
-            General.cam1.Opening = cam1Prop.Opening;
-            General.cam1.openCnt = cam1Prop.OpenCnt;
-            General.cam1.closeCnt = cam1Prop.CloseCnt;
+            General.cam1.Opening = camCommonProp.Opening;
+            General.cam1.openCnt = camCommonProp.OpenCnt;
+            General.cam1.closeCnt = camCommonProp.CloseCnt;
 
             //TODO: 座標指定
             State.VmCamera1Point.LED1 = cam1Prop.LED1;
@@ -200,20 +203,20 @@ namespace H170C_Tester
         public static void SetCam2Prop()
         {
             //cam0の設定
-            General.cam2.Brightness = cam2Prop.Brightness;
-            General.cam2.Contrast = cam2Prop.Contrast;
-            General.cam2.Hue = cam2Prop.Hue;
-            General.cam2.Saturation = cam2Prop.Saturation;
-            General.cam2.Sharpness = cam2Prop.Sharpness;
-            General.cam2.Gamma = cam2Prop.Gamma;
-            General.cam2.Gain = cam2Prop.Gain;
-            General.cam2.Exposure = cam2Prop.Exposure;
-            General.cam2.Theta = cam2Prop.Theta;
-            General.cam2.BinLevel = cam2Prop.BinLevel;
+            General.cam2.Brightness = camCommonProp.Brightness;
+            General.cam2.Contrast = camCommonProp.Contrast;
+            General.cam2.Hue = camCommonProp.Hue;
+            General.cam2.Saturation = camCommonProp.Saturation;
+            General.cam2.Sharpness = camCommonProp.Sharpness;
+            General.cam2.Gamma = camCommonProp.Gamma;
+            General.cam2.Gain = camCommonProp.Gain;
+            General.cam2.Exposure = camCommonProp.Exposure;
+            General.cam2.Theta = camCommonProp.Theta;
+            General.cam2.BinLevel = camCommonProp.BinLevel;
 
-            General.cam2.Opening = cam2Prop.Opening;
-            General.cam2.openCnt = cam2Prop.OpenCnt;
-            General.cam2.closeCnt = cam2Prop.CloseCnt;
+            General.cam2.Opening = camCommonProp.Opening;
+            General.cam2.openCnt = camCommonProp.OpenCnt;
+            General.cam2.closeCnt = camCommonProp.CloseCnt;
 
             //TODO: 座標指定
             State.VmCamera2Point.LED8 = cam2Prop.LED8;

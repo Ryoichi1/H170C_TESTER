@@ -21,6 +21,7 @@ namespace H170C_Tester
         public static readonly string filePath_Configuration = @"C:\H170C\ConfigData\Configuration.config";
         public static readonly string filePath_Camera1Property = @"C:\H170C\ConfigData\Camera1Property.config";
         public static readonly string filePath_Camera2Property = @"C:\H170C\ConfigData\Camera2Property.config";
+        public static readonly string filePath_CameraCommonProperty = @"C:\H170C\ConfigData\CameraCommonProperty.config";
 
         public static readonly string filePath_Cam1CalFilePath = @"C:\H170C\ConfigData\AN170600068.xml";
         public static readonly string filePath_Cam2CalFilePath = @"C:\H170C\ConfigData\AN170600009.xml";

@@ -76,23 +76,23 @@ namespace H170C_Tester
         }
 
 
-        private void SaveCameraProp()
+        private void SaveCameraCommonProp()
         {
             //すべてのデータを保存する
-            State.cam2Prop.Brightness = General.cam2.Brightness;
-            State.cam2Prop.Contrast = General.cam2.Contrast;
-            State.cam2Prop.Hue = General.cam2.Hue;
-            State.cam2Prop.Saturation = General.cam2.Saturation;
-            State.cam2Prop.Sharpness = General.cam2.Sharpness;
-            State.cam2Prop.Gamma = General.cam2.Gamma;
-            State.cam2Prop.Gain = General.cam2.Gain;
-            State.cam2Prop.Exposure = General.cam2.Exposure;
-            State.cam2Prop.Theta = General.cam2.Theta;
-            State.cam2Prop.BinLevel = General.cam2.BinLevel;
+            State.camCommonProp.Brightness = General.cam1.Brightness;
+            State.camCommonProp.Contrast = General.cam1.Contrast;
+            State.camCommonProp.Hue = General.cam1.Hue;
+            State.camCommonProp.Saturation = General.cam1.Saturation;
+            State.camCommonProp.Sharpness = General.cam1.Sharpness;
+            State.camCommonProp.Gamma = General.cam1.Gamma;
+            State.camCommonProp.Gain = General.cam1.Gain;
+            State.camCommonProp.Exposure = General.cam1.Exposure;
+            State.camCommonProp.Theta = General.cam1.Theta;
+            State.camCommonProp.BinLevel = General.cam1.BinLevel;
 
-            State.cam2Prop.Opening = General.cam2.Opening;
-            State.cam2Prop.OpenCnt = General.cam2.openCnt;
-            State.cam2Prop.CloseCnt = General.cam2.closeCnt;
+            State.camCommonProp.Opening = General.cam1.Opening;
+            State.camCommonProp.OpenCnt = General.cam1.openCnt;
+            State.camCommonProp.CloseCnt = General.cam1.closeCnt;
 
         }
         private void SaveRedLum()
@@ -348,7 +348,7 @@ namespace H170C_Tester
         private async void buttonSaveCamProp_Click(object sender, RoutedEventArgs e)
         {
             buttonSaveCamProp.Background = Brushes.DodgerBlue;
-            SaveCameraProp();
+            SaveCameraCommonProp();
             await Task.Delay(150);
             General.PlaySound(General.soundSuccess);
             buttonSaveCamProp.Background = Brushes.Transparent;
