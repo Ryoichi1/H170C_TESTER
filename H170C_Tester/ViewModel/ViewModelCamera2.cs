@@ -1,5 +1,4 @@
 ﻿using Microsoft.Practices.Prism.Mvvm;
-using System.Windows.Media;
 
 namespace H170C_Tester
 {

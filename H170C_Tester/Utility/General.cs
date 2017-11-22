@@ -361,7 +361,7 @@ namespace H170C_Tester
             if (sw)
             {
                 LPC1768.SendData1768("K3,1");
-                Thread.Sleep(1000);
+                Thread.Sleep(2000);
             }
             else
             {
@@ -494,7 +494,6 @@ namespace H170C_Tester
 
         public static void Init周辺機器()//TODO:
         {
-
             Flags.Initializing周辺機器 = true;
 
             //LPC1768の初期化
@@ -534,6 +533,8 @@ namespace H170C_Tester
                         break;
                     }
 
+                    if (!Flags.State1768) continue;//他のアイテムの試験機が接続されていたらカメラのイニシャライズは行わない
+
                     cam1.InitCamera();
                     if (General.cam1.CamState) break;
 
@@ -553,6 +554,8 @@ namespace H170C_Tester
                     {
                         break;
                     }
+
+                    if (!Flags.State1768) continue;//他のアイテムの試験機が接続されていたらカメラのイニシャライズは行わない
 
                     cam2.InitCamera();
                     if (General.cam2.CamState) break;
@@ -579,6 +582,7 @@ namespace H170C_Tester
                 }
                 Flags.Initializing周辺機器 = false;
             });
+
         }
 
         //強制停止ボタンの設定

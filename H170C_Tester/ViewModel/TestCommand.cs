@@ -398,7 +398,7 @@ namespace H170C_Tester
                         {
                             break;
                         }
-                        Thread.Sleep(1000);
+                        Thread.Sleep(400);
                     }
                     General.player.Stop();
                 });
@@ -459,7 +459,7 @@ namespace H170C_Tester
                         {
                             break;
                         }
-                        Thread.Sleep(1000);
+                        Thread.Sleep(400);
                     }
                 });
 

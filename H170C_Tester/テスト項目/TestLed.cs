@@ -426,8 +426,6 @@ namespace H170C_Tester
             }
             finally
             {
-                General.cam1.ResetFlag();
-
             }
 
 
@@ -768,7 +766,6 @@ namespace H170C_Tester
             }
             finally
             {
-                General.cam2.ResetFlag();
             }
 
         }
@@ -1052,61 +1049,61 @@ namespace H170C_Tester
                     }
 
 
-                    if (!Result)
-                    {
-                        General.cam1.MakeNgFrame = (img) =>
-                        {
-                            //リストからNGの座標を抽出する
-                            var NgList = ListLedSpec1.Where(l => !l.resultHue).ToList();
-                            NgList.ForEach(n =>
-                            {
-                                int x = 0;
-                                int y = 0;
-                                switch (n.name)
-                                {
-                                    case NAME1.LED1:
-                                        x = Int32.Parse(State.cam1Prop.LED1.Split('/').ToArray()[0]);
-                                        y = Int32.Parse(State.cam1Prop.LED1.Split('/').ToArray()[1]);
-                                        break;
+                    //if (!Result)
+                    //{
+                    //    General.cam1.MakeNgFrame = (img) =>
+                    //    {
+                    //        //リストからNGの座標を抽出する
+                    //        var NgList = ListLedSpec1.Where(l => !l.resultHue).ToList();
+                    //        NgList.ForEach(n =>
+                    //        {
+                    //            int x = 0;
+                    //            int y = 0;
+                    //            switch (n.name)
+                    //            {
+                    //                case NAME1.LED1:
+                    //                    x = Int32.Parse(State.cam1Prop.LED1.Split('/').ToArray()[0]);
+                    //                    y = Int32.Parse(State.cam1Prop.LED1.Split('/').ToArray()[1]);
+                    //                    break;
 
-                                    case NAME1.LED2:
-                                        x = Int32.Parse(State.cam1Prop.LED2.Split('/').ToArray()[0]);
-                                        y = Int32.Parse(State.cam1Prop.LED2.Split('/').ToArray()[1]);
-                                        break;
+                    //                case NAME1.LED2:
+                    //                    x = Int32.Parse(State.cam1Prop.LED2.Split('/').ToArray()[0]);
+                    //                    y = Int32.Parse(State.cam1Prop.LED2.Split('/').ToArray()[1]);
+                    //                    break;
 
-                                    case NAME1.LED3:
-                                        x = Int32.Parse(State.cam1Prop.LED3.Split('/').ToArray()[0]);
-                                        y = Int32.Parse(State.cam1Prop.LED3.Split('/').ToArray()[1]);
-                                        break;
+                    //                case NAME1.LED3:
+                    //                    x = Int32.Parse(State.cam1Prop.LED3.Split('/').ToArray()[0]);
+                    //                    y = Int32.Parse(State.cam1Prop.LED3.Split('/').ToArray()[1]);
+                    //                    break;
 
-                                    case NAME1.LED4:
-                                        x = Int32.Parse(State.cam1Prop.LED4.Split('/').ToArray()[0]);
-                                        y = Int32.Parse(State.cam1Prop.LED4.Split('/').ToArray()[1]);
-                                        break;
+                    //                case NAME1.LED4:
+                    //                    x = Int32.Parse(State.cam1Prop.LED4.Split('/').ToArray()[0]);
+                    //                    y = Int32.Parse(State.cam1Prop.LED4.Split('/').ToArray()[1]);
+                    //                    break;
 
-                                    case NAME1.LED5:
-                                        x = Int32.Parse(State.cam1Prop.LED5.Split('/').ToArray()[0]);
-                                        y = Int32.Parse(State.cam1Prop.LED5.Split('/').ToArray()[1]);
-                                        break;
+                    //                case NAME1.LED5:
+                    //                    x = Int32.Parse(State.cam1Prop.LED5.Split('/').ToArray()[0]);
+                    //                    y = Int32.Parse(State.cam1Prop.LED5.Split('/').ToArray()[1]);
+                    //                    break;
 
-                                    case NAME1.LED6:
-                                        x = Int32.Parse(State.cam1Prop.LED6.Split('/').ToArray()[0]);
-                                        y = Int32.Parse(State.cam1Prop.LED6.Split('/').ToArray()[1]);
-                                        break;
+                    //                case NAME1.LED6:
+                    //                    x = Int32.Parse(State.cam1Prop.LED6.Split('/').ToArray()[0]);
+                    //                    y = Int32.Parse(State.cam1Prop.LED6.Split('/').ToArray()[1]);
+                    //                    break;
 
-                                    case NAME1.LED7:
-                                        x = Int32.Parse(State.cam1Prop.LED7.Split('/').ToArray()[0]);
-                                        y = Int32.Parse(State.cam1Prop.LED7.Split('/').ToArray()[1]);
-                                        break;
-                                }
+                    //                case NAME1.LED7:
+                    //                    x = Int32.Parse(State.cam1Prop.LED7.Split('/').ToArray()[0]);
+                    //                    y = Int32.Parse(State.cam1Prop.LED7.Split('/').ToArray()[1]);
+                    //                    break;
+                    //            }
 
-                                var length = 30;
-                                img.Rectangle(new CvRect(x - (length / 2), y - (length / 2), length, length), CvColor.DodgerBlue, 4);
-                            });
-                        };
-                        General.cam1.FlagNgFrame = true;
-                        State.VmTestStatus.MeasValue = "計測値 : ---";
-                    }
+                    //            var length = 30;
+                    //            img.Rectangle(new CvRect(x - (length / 2), y - (length / 2), length, length), CvColor.DodgerBlue, 4);
+                    //        });
+                    //    };
+                    //    General.cam1.FlagNgFrame = true;
+                    //    State.VmTestStatus.MeasValue = "計測値 : ---";
+                    //}
 
                 }
             });
@@ -1392,61 +1389,61 @@ namespace H170C_Tester
                     }
 
 
-                    if (!Result)
-                    {
-                        General.cam2.MakeNgFrame = (img) =>
-                        {
-                            //リストからNGの座標を抽出する
-                            var NgList = ListLedSpec2.Where(l => !l.resultHue).ToList();
-                            NgList.ForEach(n =>
-                            {
-                                int x = 0;
-                                int y = 0;
-                                switch (n.name)
-                                {
-                                    case NAME2.LED8:
-                                        x = Int32.Parse(State.cam2Prop.LED8.Split('/').ToArray()[0]);
-                                        y = Int32.Parse(State.cam2Prop.LED8.Split('/').ToArray()[1]);
-                                        break;
+                    //if (!Result)
+                    //{
+                    //    General.cam2.MakeNgFrame = (img) =>
+                    //    {
+                    //        //リストからNGの座標を抽出する
+                    //        var NgList = ListLedSpec2.Where(l => !l.resultHue).ToList();
+                    //        NgList.ForEach(n =>
+                    //        {
+                    //            int x = 0;
+                    //            int y = 0;
+                    //            switch (n.name)
+                    //            {
+                    //                case NAME2.LED8:
+                    //                    x = Int32.Parse(State.cam2Prop.LED8.Split('/').ToArray()[0]);
+                    //                    y = Int32.Parse(State.cam2Prop.LED8.Split('/').ToArray()[1]);
+                    //                    break;
 
-                                    case NAME2.LED9:
-                                        x = Int32.Parse(State.cam2Prop.LED9.Split('/').ToArray()[0]);
-                                        y = Int32.Parse(State.cam2Prop.LED9.Split('/').ToArray()[1]);
-                                        break;
+                    //                case NAME2.LED9:
+                    //                    x = Int32.Parse(State.cam2Prop.LED9.Split('/').ToArray()[0]);
+                    //                    y = Int32.Parse(State.cam2Prop.LED9.Split('/').ToArray()[1]);
+                    //                    break;
 
-                                    case NAME2.LED10:
-                                        x = Int32.Parse(State.cam2Prop.LED10.Split('/').ToArray()[0]);
-                                        y = Int32.Parse(State.cam2Prop.LED10.Split('/').ToArray()[1]);
-                                        break;
+                    //                case NAME2.LED10:
+                    //                    x = Int32.Parse(State.cam2Prop.LED10.Split('/').ToArray()[0]);
+                    //                    y = Int32.Parse(State.cam2Prop.LED10.Split('/').ToArray()[1]);
+                    //                    break;
 
-                                    case NAME2.LED11:
-                                        x = Int32.Parse(State.cam2Prop.LED11.Split('/').ToArray()[0]);
-                                        y = Int32.Parse(State.cam2Prop.LED11.Split('/').ToArray()[1]);
-                                        break;
+                    //                case NAME2.LED11:
+                    //                    x = Int32.Parse(State.cam2Prop.LED11.Split('/').ToArray()[0]);
+                    //                    y = Int32.Parse(State.cam2Prop.LED11.Split('/').ToArray()[1]);
+                    //                    break;
 
-                                    case NAME2.LED12:
-                                        x = Int32.Parse(State.cam2Prop.LED12.Split('/').ToArray()[0]);
-                                        y = Int32.Parse(State.cam2Prop.LED12.Split('/').ToArray()[1]);
-                                        break;
+                    //                case NAME2.LED12:
+                    //                    x = Int32.Parse(State.cam2Prop.LED12.Split('/').ToArray()[0]);
+                    //                    y = Int32.Parse(State.cam2Prop.LED12.Split('/').ToArray()[1]);
+                    //                    break;
 
-                                    case NAME2.LED13:
-                                        x = Int32.Parse(State.cam2Prop.LED13.Split('/').ToArray()[0]);
-                                        y = Int32.Parse(State.cam2Prop.LED13.Split('/').ToArray()[1]);
-                                        break;
+                    //                case NAME2.LED13:
+                    //                    x = Int32.Parse(State.cam2Prop.LED13.Split('/').ToArray()[0]);
+                    //                    y = Int32.Parse(State.cam2Prop.LED13.Split('/').ToArray()[1]);
+                    //                    break;
 
-                                    case NAME2.LED14:
-                                        x = Int32.Parse(State.cam2Prop.LED14.Split('/').ToArray()[0]);
-                                        y = Int32.Parse(State.cam2Prop.LED14.Split('/').ToArray()[1]);
-                                        break;
-                                }
+                    //                case NAME2.LED14:
+                    //                    x = Int32.Parse(State.cam2Prop.LED14.Split('/').ToArray()[0]);
+                    //                    y = Int32.Parse(State.cam2Prop.LED14.Split('/').ToArray()[1]);
+                    //                    break;
+                    //            }
 
-                                var length = 30;
-                                img.Rectangle(new CvRect(x - (length / 2), y - (length / 2), length, length), CvColor.DodgerBlue, 4);
-                            });
-                        };
-                        General.cam2.FlagNgFrame = true;
-                        State.VmTestStatus.MeasValue = "計測値 : ---";
-                    }
+                    //            var length = 30;
+                    //            img.Rectangle(new CvRect(x - (length / 2), y - (length / 2), length, length), CvColor.DodgerBlue, 4);
+                    //        });
+                    //    };
+                    //    General.cam2.FlagNgFrame = true;
+                    //    State.VmTestStatus.MeasValue = "計測値 : ---";
+                    //}
 
                 }
             });
@@ -1484,11 +1481,12 @@ namespace H170C_Tester
 
                 var reColor = await CheckColor1(col);
                 var reLum = await CheckLum1(col);
+                General.cam1.ResetFlag();
+                LPC1768.SendDataTarget("C");
                 return allResult = reLum && reColor;
             }
             finally
             {
-                LPC1768.SendDataTarget("C");
             }
         }
 
@@ -1521,11 +1519,12 @@ namespace H170C_Tester
 
                 var reColor = await CheckColor2(col);
                 var reLum = await CheckLum2(col);
+                General.cam2.ResetFlag();
+                LPC1768.SendDataTarget("C");
                 return allResult = reLum && reColor;
             }
             finally
             {
-                LPC1768.SendDataTarget("C");
             }
         }
 

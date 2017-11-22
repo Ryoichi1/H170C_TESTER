@@ -29,8 +29,8 @@ namespace H170C_Tester
             State.VmMainWindow.MainWinEnable = false;
             await Task.Delay(1200);
             State.VmMainWindow.MainWinEnable = true;
-            General.cam1.Start();
             State.SetCam1Prop();
+            General.cam1.Start();
             tbPoint.Visibility = System.Windows.Visibility.Hidden;
             tbHsv.Visibility = System.Windows.Visibility.Hidden;
 
@@ -41,7 +41,6 @@ namespace H170C_Tester
             RedOn = false;
             BlueOn = false;
             GreenOn = false;
-            General.cam1.ResetFlag();
             await General.cam1.Stop();
             resetView();
 
@@ -88,6 +87,7 @@ namespace H170C_Tester
             State.camCommonProp.Gamma = General.cam1.Gamma;
             State.camCommonProp.Gain = General.cam1.Gain;
             State.camCommonProp.Exposure = General.cam1.Exposure;
+            State.camCommonProp.Whitebalance = General.cam1.Wb;
             State.camCommonProp.Theta = General.cam1.Theta;
             State.camCommonProp.BinLevel = General.cam1.BinLevel;
 
@@ -395,9 +395,6 @@ namespace H170C_Tester
 
         }
 
-        private void buttonShowCamProp_Click(object sender, RoutedEventArgs e)
-        {
-            General.cam1.ShowPropertyPage();
-        }
+
     }
 }

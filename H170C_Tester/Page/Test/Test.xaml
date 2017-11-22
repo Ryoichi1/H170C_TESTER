@@ -84,7 +84,7 @@
                 </Style>
             </Canvas.Resources>
             <Canvas.Background>
-                <SolidColorBrush Color="White" Opacity="0.07"/>
+                <SolidColorBrush Color="White" Opacity="0.1"/>
             </Canvas.Background>
 
 
@@ -276,7 +276,7 @@
                 </Style>
             </Canvas.Resources>
             <Canvas.Background>
-                <SolidColorBrush Color="White" Opacity="0.085"/>
+                <SolidColorBrush Color="White" Opacity="0.1"/>
             </Canvas.Background>
 
             <TextBlock TextWrapping="Wrap" Text="Status" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" Width="60" Canvas.Left="7" Canvas.Top="4"/>
@@ -344,7 +344,7 @@
                 </Style>
             </Canvas.Resources>
             <Canvas.Background>
-                <SolidColorBrush Color="White" Opacity="0.07"/>
+                <SolidColorBrush Color="White" Opacity="0.1"/>
             </Canvas.Background>
 
             <TextBox x:Name="tbTestLog" Height="215" Canvas.Left="8" TextWrapping="Wrap" Canvas.Top="33" Width="352" BorderBrush="{x:Null}" Foreground="White" Background="{x:Null}" VerticalScrollBarVisibility="Auto" SelectionBrush="{x:Null}" BorderThickness="0" CaretBrush="{x:Null}" IsReadOnly="True" FontSize="14" TextChanged="tbTestLog_TextChanged" Text="{Binding TestLog}">
@@ -383,7 +383,7 @@
 
         <Canvas x:Name="canvasTestSetting" Height="60" Canvas.Left="656" Canvas.Top="65" Width="433" IsEnabled="{Binding TestSettingEnable}">
             <Canvas.Background>
-                <SolidColorBrush Color="#FF635E5E" Opacity="0.3"/>
+                <SolidColorBrush Color="White" Opacity="0.1"/>
             </Canvas.Background>
             <Canvas x:Name="canvasUnitTest" Height="34" Canvas.Left="149" Canvas.Top="18" Width="283" IsVisibleChanged="canvasUnitTest_IsVisibleChanged" IsEnabled="{Binding UnitTestEnable}">
                 <CheckBox x:Name="CheckBoxUnitTest" Content="単体試験" IsChecked="{Binding CheckUnitTest}" Height="27" Width="75" Background="White" Foreground="#FFFDFDFD" Canvas.Left="5" Canvas.Top="5"/>
@@ -439,7 +439,7 @@
 
             </Canvas.Resources>
             <Canvas.Background>
-                <SolidColorBrush Color="White" Opacity="0.07"/>
+                <SolidColorBrush Color="White" Opacity="0.1"/>
             </Canvas.Background>
             <TextBlock Height="30" Canvas.Left="30" Canvas.Top="37" Width="210" Padding="5,0,0,0" TextWrapping="Wrap" Text="{Binding LPC1768_TX}" Foreground="White">
                 <TextBlock.Background>
@@ -562,7 +562,7 @@
                 </Style>
             </Canvas.Resources>
             <Canvas.Background>
-                <SolidColorBrush Color="White" Opacity="0.07"/>
+                <SolidColorBrush Color="White" Opacity="0.1"/>
             </Canvas.Background>
             <Label Content="{Binding FwVer}" Height="26" Canvas.Left="92" Canvas.Top="39" Width="93" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Light"/>
             <Label Content="{Binding FwSum}" Height="26" Canvas.Left="301" Canvas.Top="38" Width="108" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Light"/>

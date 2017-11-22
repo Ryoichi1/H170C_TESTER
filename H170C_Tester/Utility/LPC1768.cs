@@ -92,13 +92,17 @@ namespace H170C_Tester
                 RecieveData = "";//初期化
                 port.ReadTimeout = Wait;
                 RecieveData = port.ReadLine();
-                if(setLog) State.VmComm.LPC1768_RX = RecieveData;
+                if (setLog) State.VmComm.LPC1768_RX = RecieveData;
                 return true;
             }
             catch
             {
                 State.VmComm.LPC1768_RX = "TimeoutErr";
                 return false;
+            }
+            finally
+            {
+                Thread.Sleep(150);
             }
         }
 
@@ -173,7 +177,7 @@ namespace H170C_Tester
                         //ラベルの色を赤くするなどの処理を追加する
                     }
                     //先頭の[STX],末尾の[ETX]はログにそのまま表示する
-                    if (setLog) State.VmComm.TARGET_RX = data; Thread.Sleep(40);
+                    if (setLog) State.VmComm.TARGET_RX = data; Thread.Sleep(150);
                 }
             }
 

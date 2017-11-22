@@ -183,6 +183,7 @@ namespace H170C_Tester
             General.cam1.Gamma = camCommonProp.Gamma;
             General.cam1.Gain = camCommonProp.Gain;
             General.cam1.Exposure = camCommonProp.Exposure;
+            General.cam1.Wb = camCommonProp.Whitebalance;
             General.cam1.Theta = camCommonProp.Theta;
             General.cam1.BinLevel = camCommonProp.BinLevel;
 
@@ -211,6 +212,7 @@ namespace H170C_Tester
             General.cam2.Gamma = camCommonProp.Gamma;
             General.cam2.Gain = camCommonProp.Gain;
             General.cam2.Exposure = camCommonProp.Exposure;
+            General.cam2.Wb = camCommonProp.Whitebalance;
             General.cam2.Theta = camCommonProp.Theta;
             General.cam2.BinLevel = camCommonProp.BinLevel;
 

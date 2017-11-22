@@ -16,16 +16,14 @@ namespace H170C_Tester
         public Mente()
         {
             InitializeComponent();
-            CanvasComm232.DataContext = State.VmComm;
+            CanvasCommLpc1768.DataContext = State.VmComm;
+            CanvasCommTarget.DataContext = State.VmComm;
 
 
             ButtonOnBrush.Color = Colors.DodgerBlue;
             ButtonOffBrush.Color = Colors.Transparent;
             ButtonOnBrush.Opacity = ButtonOpacity;
             ButtonOffBrush.Opacity = ButtonOpacity;
-            rbSendLpc1768.IsChecked = true;
-
-            tbCommand232.Text = "";
 
         }
 
@@ -66,9 +64,8 @@ namespace H170C_Tester
         {
             State.VmComm.LPC1768_RX = "";
             State.VmComm.LPC1768_TX = "";
-
-            tbCommand232.Text = "";
-
+            State.VmComm.TARGET_RX = "";
+            State.VmComm.TARGET_TX = "";
         }
 
 
@@ -79,23 +76,20 @@ namespace H170C_Tester
             buttonStamp.Background = ButtonOffBrush;
         }
 
-
-        private void buttonSend232_Click(object sender, RoutedEventArgs e)
+        private void buttonSendLpc1768_Click(object sender, RoutedEventArgs e)
         {
-            if (!Flags.PowOn) return;
-            if (rbSendLpc1768.IsChecked == true)
-            {
-                LPC1768.SendData1768(tbCommand232.Text);
-            }
-            else
-            {
-                LPC1768.SendDataTarget(tbCommand232.Text);
-            }
+            LPC1768.SendData1768(tbCommandLpc1768.Text);
+        }
+
+        private void buttonSendTarget_Click(object sender, RoutedEventArgs e)
+        {
+            LPC1768.SendDataTarget(tbCommandTarget.Text);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            General.SetK1_2(true);
+
+                General.SetK1_2(true);
         }
     }
 }

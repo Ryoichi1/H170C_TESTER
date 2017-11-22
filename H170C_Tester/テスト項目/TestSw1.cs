@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -114,7 +113,7 @@ namespace H170C_Tester
                         State.VmTestStatus.TestLog += "\r\nALL SW1 ALL_ON";
 
                         General.PlaySound(General.soundNotice);
-                        State.VmTestStatus.Message = "プレスを開けて、S1をすべてON ⇧ してください";
+                        State.VmTestStatus.Message = "プレスを開けて、S1をすべてON ⇩ してください";
                         InitListS1();//テストスペック毎回初期化
 
                         while (true)
@@ -159,7 +158,7 @@ namespace H170C_Tester
                         State.VmTestStatus.TestLog += "ALL SW1 ALL_OFF";
 
                         General.PlaySound(General.soundNotice);
-                        State.VmTestStatus.Message = "プレスを開けて、S1をすべてOFF ⇩ してください";
+                        State.VmTestStatus.Message = "プレスを開けて、S1をすべてOFF ⇧ してください";
                         InitListS1();//テストスペック毎回初期化
 
                         while (true)

@@ -1,19 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace H170C_Tester
 {
@@ -36,21 +23,21 @@ namespace H170C_Tester
         private void Pic1_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
-            State.VmMainWindow.Theme = "Resources/Pic/chri1.jpg";
+            State.VmMainWindow.Theme = "Resources/Pic/snow.jpg";
             General.Show();
         }
 
         private void Pic2_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
-            State.VmMainWindow.Theme = "Resources/Pic/chri2.jpg";
+            State.VmMainWindow.Theme = "Resources/Pic/wa_winter.jpg";
             General.Show();
         }
 
         private void Pic3_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
-            State.VmMainWindow.Theme = "Resources/Pic/taki.jpg";
+            State.VmMainWindow.Theme = "Resources/Pic/night.jpg";
             General.Show();
         }
 
@@ -84,9 +71,6 @@ namespace H170C_Tester
             State.Setting.OpacityTheme = State.VmMainWindow.ThemeOpacity;
         }
 
-        private void SliderBlurEffectRadius_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            //State.Setting.OpacityTheme = State.VmMainWindow.ThemeOpacity;
-        }
+
     }
 }

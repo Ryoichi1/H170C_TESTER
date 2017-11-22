@@ -20,6 +20,7 @@ namespace H170C_Tester
         public double Gamma { get; set; }
         public double Gain { get; set; }
         public double Exposure { get; set; }
+        public int Whitebalance { get; set; }
         public double Theta { get; set; }
 
     }

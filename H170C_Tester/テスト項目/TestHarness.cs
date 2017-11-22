@@ -1,8 +1,4 @@
-﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace H170C_Tester
+﻿namespace H170C_Tester
 {
     public static class TestHarness
     {

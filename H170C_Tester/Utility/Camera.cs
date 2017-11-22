@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Threading;
 
 namespace H170C_Tester
 {
@@ -18,6 +17,11 @@ namespace H170C_Tester
     {
         static readonly int WIDTH = 640;
         static readonly int HEIGHT = 360;
+
+        //ホワイトバランス調整用（Aforge.NET 拡張版）
+        private FilterInfoCollection videoDevices;
+        private VideoCaptureDevice2 videoDevice;
+
 
         public CvMat _fileIntrinsic, _fileDistortion;
 
@@ -29,12 +33,6 @@ namespace H170C_Tester
         public Action<IplImage> MakeNgFrame;
         private bool FlagPropChange;
         private int CameraNumber;
-
-        //カメラプロパティ画面表示に使用
-        //使用するビデオデバイス
-        public VideoCaptureDevice videoDevice;
-        //接続されている全てのビデオデバイス情報を格納する変数
-        public FilterInfoCollection videoDeviceCollection;
 
 
         public bool FlagLabeling { get; set; }
@@ -72,6 +70,7 @@ namespace H170C_Tester
                 _fileDistortion = fs.Read<CvMat>(param);
             }
 
+
         }
 
 
@@ -95,6 +94,8 @@ namespace H170C_Tester
                 using (var cap = Cv.CreateCameraCapture(CameraNumber)) // カメラのキャプチャ
                 { }
                 CamState = true;
+                videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+                videoDevice = new VideoCaptureDevice2(videoDevices[CameraNumber].MonikerString);
             }
             catch
             {
@@ -206,6 +207,18 @@ namespace H170C_Tester
             set { this.SetProperty(ref this._Exposure, value); FlagPropChange = true; }
         }
 
+        //ホワイトバランス
+        private int _Wb;
+        public int Wb
+        {
+            get { return _Wb; }
+            set
+            {
+                this.SetProperty(ref this._Wb, value);
+                videoDevice.SetVideoProperty(VideoProcAmpProperty.WhiteBalance, value, VideoProcAmpFlags.Manual);
+            }
+        }
+
 
 
         //回転角度
@@ -247,19 +260,22 @@ namespace H170C_Tester
 
 
         private bool canExecute = false;
+        private bool Stopped = false;
 
         public async Task Stop()
         {
             if (!canExecute) return;//カメラが起動していなければ何もしない
-
+            ResetFlag();
+            Stopped = false;
             canExecute = false;
             await Task.Run(() =>
             {
                 while (true)
                 {
-                    if (canExecute) break;
+                    if (Stopped) break;
                 }
             });
+            source = null;
         }
 
 
@@ -278,6 +294,7 @@ namespace H170C_Tester
             Task.Run(() =>
             {
                 Thread.Sleep(1000);
+
                 try
                 {
                     cap = Cv.CreateCameraCapture(CameraNumber); // カメラのキャプチ
@@ -291,8 +308,6 @@ namespace H170C_Tester
                     {
                         try
                         {
-
-
                             Thread.Sleep(100);
                             if (FlagPropChange)
                             {
@@ -479,7 +494,7 @@ namespace H170C_Tester
                         cap = null;
                     }
                     IsActive = false;
-                    canExecute = true;
+                    Stopped = true;
                 }
             });
         }
@@ -542,16 +557,6 @@ namespace H170C_Tester
             Sdata = re[1];
             Vdata = re[2];
 
-        }
-
-        public void ShowPropertyPage()
-        {
-            //ビデオ入力デバイスのみ取得
-            videoDeviceCollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-
-            //最初に見つかったビデオデバイスを使用する場合、以下のようにIndex = 0とすればよい
-            videoDevice = new VideoCaptureDevice(videoDeviceCollection[CameraNumber].MonikerString);
-            videoDevice.DisplayPropertyPage(IntPtr.Zero);
         }
 
     }

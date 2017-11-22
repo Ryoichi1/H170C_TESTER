@@ -38,7 +38,7 @@
     </Page.Triggers>
 
     <Canvas>
-        <Canvas x:Name="CanvasComm232" Height="183" Canvas.Left="13" Canvas.Top="146" Width="466">
+        <Canvas x:Name="CanvasCommLpc1768" Height="183" Canvas.Left="13" Canvas.Top="146" Width="466">
             <Canvas.Resources>
                 <Style TargetType="{x:Type Label}">
                     <Setter Property="FontSize" Value="11"/>
@@ -55,12 +55,12 @@
             <Canvas.Background>
                 <SolidColorBrush Color="#FF44BDEC" Opacity="0.2"/>
             </Canvas.Background>
-            <TextBlock Text="{Binding RS232C_TX}" Height="34" Canvas.Left="30" Canvas.Top="90" Width="354" FontSize="14" Padding="5,0,0,0" TextWrapping="Wrap" Foreground="White">
+            <TextBlock Text="{Binding LPC1768_TX}" Height="34" Canvas.Left="30" Canvas.Top="90" Width="354" FontSize="14" Padding="5,0,0,0" TextWrapping="Wrap" Foreground="White">
                 <TextBlock.Background>
                     <SolidColorBrush Color="#FF08A2F9" Opacity="0.3"/>
                 </TextBlock.Background>
             </TextBlock>
-            <TextBlock Text="{Binding RS232C_RX}" Height="34" Canvas.Left="31" Canvas.Top="129" Width="353" FontSize="14" Padding="5,0,0,0" TextWrapping="Wrap" Foreground="White">
+            <TextBlock Text="{Binding LPC1768_RX}" Height="34" Canvas.Left="31" Canvas.Top="129" Width="353" FontSize="14" Padding="5,0,0,0" TextWrapping="Wrap" Foreground="White">
                 <TextBlock.Background>
                     <SolidColorBrush Color="#FF08A2F9" Opacity="0.3"/>
                 </TextBlock.Background>
@@ -85,7 +85,7 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <TextBlock x:Name="textBlock2_Copy2" TextWrapping="Wrap" Text="RS232C通信" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="199" RenderTransformOrigin="0.5,0.5" Canvas.Top="4" Canvas.Left="11">
+            <TextBlock x:Name="textBlock2_Copy2" TextWrapping="Wrap" Text="LPC1768通信" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="199" RenderTransformOrigin="0.5,0.5" Canvas.Top="4" Canvas.Left="11">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -100,10 +100,8 @@
                     <DropShadowEffect Color="#FF09A0F7" Direction="0" ShadowDepth="0" BlurRadius="20"/>
                 </Label.Effect>
             </Label>
-            <Button x:Name="buttonSend232" Content="送信"  Height="29" Canvas.Left="31" Canvas.Top="43" Width="90" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="0" ScrollViewer.CanContentScroll="True" BorderThickness="1" Background="{x:Null}" Click="buttonSend232_Click"/>
-            <TextBox x:Name="tbCommand232" Height="29" Canvas.Left="131" TextWrapping="Wrap" Canvas.Top="43" Width="175" FontSize="18" BorderBrush="White" Background="{x:Null}"/>
-            <RadioButton x:Name="rbSendLpc1768_Copy" Content="TARGET" Height="26" Canvas.Left="336" Canvas.Top="53" Width="111" RenderTransformOrigin="0.568,0.808"/>
-            <RadioButton x:Name="rbSendLpc1768" Content="LPC1768" Height="26" Canvas.Left="336" Canvas.Top="23" Width="111"/>
+            <Button x:Name="buttonSendLpc1768" Content="送信"  Height="29" Canvas.Left="31" Canvas.Top="43" Width="90" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="0" ScrollViewer.CanContentScroll="True" BorderThickness="1" Background="{x:Null}" Click="buttonSendLpc1768_Click"/>
+            <TextBox x:Name="tbCommandLpc1768" Height="29" Canvas.Left="131" TextWrapping="Wrap" Canvas.Top="43" Width="175" FontSize="18" BorderBrush="White" Background="{x:Null}"/>
         </Canvas>
         <Canvas Height="115" Canvas.Left="11" Canvas.Top="13" Width="468">
             <Canvas.Background>
@@ -112,7 +110,72 @@
             <Button x:Name="buttonStamp" Content="合格印"  Height="34" Canvas.Left="92" Canvas.Top="11" Width="70" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="0" ScrollViewer.CanContentScroll="True" BorderThickness="1" Background="{x:Null}" Click="buttonStamp_Click"/>
             <Button x:Name="buttonPow" Content="電源"  Height="34" Canvas.Left="10" Canvas.Top="11" Width="70" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="buttonPow_Click" RenderTransformOrigin="0.5,0.5" Padding="0" ScrollViewer.CanContentScroll="True" BorderThickness="1" Background="{x:Null}"/>
         </Canvas>
-        <Button Content="Button" Height="71" Canvas.Left="603" Canvas.Top="146" Width="193" Click="Button_Click"/>
+        <Canvas x:Name="CanvasCommTarget" Height="183" Canvas.Left="13" Canvas.Top="342" Width="466">
+            <Canvas.Resources>
+                <Style TargetType="{x:Type Label}">
+                    <Setter Property="FontSize" Value="11"/>
+                    <Setter Property="Width" Value="58"/>
+                    <Setter Property="Foreground"  Value="white"/>
+                    <Setter Property="BorderBrush" Value="White"/>
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <DropShadowEffect Color="#FF04FFF4" BlurRadius="20" ShadowDepth="0" Direction="0"/>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Canvas.Resources>
+            <Canvas.Background>
+                <SolidColorBrush Color="#FF44BDEC" Opacity="0.2"/>
+            </Canvas.Background>
+            <TextBlock Text="{Binding TARGET_TX}" Height="34" Canvas.Left="30" Canvas.Top="90" Width="354" FontSize="14" Padding="5,0,0,0" TextWrapping="Wrap" Foreground="White">
+                <TextBlock.Background>
+                    <SolidColorBrush Color="#FF08A2F9" Opacity="0.3"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock Text="{Binding TARGET_RX}" Height="34" Canvas.Left="31" Canvas.Top="129" Width="353" FontSize="14" Padding="5,0,0,0" TextWrapping="Wrap" Foreground="White">
+                <TextBlock.Background>
+                    <SolidColorBrush Color="#FF08A2F9" Opacity="0.3"/>
+                </TextBlock.Background>
+            </TextBlock>
+            <TextBlock x:Name="textBlock2_Copy3" TextWrapping="Wrap" Text="Tx" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="21" RenderTransformOrigin="0.5,0.5" Canvas.Top="94" Canvas.Left="8">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock x:Name="textBlock2_Copy4" TextWrapping="Wrap" Text="Rx" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="22" RenderTransformOrigin="0.5,0.5" Canvas.Top="132" Canvas.Left="7">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <TextBlock x:Name="textBlock2_Copy5" TextWrapping="Wrap" Text="TARGET通信" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="199" RenderTransformOrigin="0.5,0.5" Canvas.Top="4" Canvas.Left="11">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <Label Content="" Height="1" Canvas.Left="8" Canvas.Top="28" Width="293" Background="#FF0388F7">
+                <Label.Effect>
+                    <DropShadowEffect Color="#FF09A0F7" Direction="0" ShadowDepth="0" BlurRadius="20"/>
+                </Label.Effect>
+            </Label>
+            <Button x:Name="buttonSendTarget" Content="送信"  Height="29" Canvas.Left="31" Canvas.Top="43" Width="90" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="0" ScrollViewer.CanContentScroll="True" BorderThickness="1" Background="{x:Null}" Click="buttonSendTarget_Click"/>
+            <TextBox x:Name="tbCommandTarget" Height="29" Canvas.Left="131" TextWrapping="Wrap" Canvas.Top="43" Width="175" FontSize="18" BorderBrush="White" Background="{x:Null}"/>
+        </Canvas>
+        <Button Content="Button" Height="34" Canvas.Left="594" Canvas.Top="94" Width="156" Click="Button_Click"/>
 
     </Canvas>
 </Page>

@@ -29,8 +29,8 @@ namespace H170C_Tester
             State.VmMainWindow.MainWinEnable = false;
             await Task.Delay(1200);
             State.VmMainWindow.MainWinEnable = true;
-            General.cam2.Start();
             State.SetCam2Prop();
+            General.cam2.Start();
             tbPoint.Visibility = System.Windows.Visibility.Hidden;
             tbHsv.Visibility = System.Windows.Visibility.Hidden;
 
@@ -41,7 +41,6 @@ namespace H170C_Tester
             RedOn = false;
             BlueOn = false;
             GreenOn = false;
-            General.cam2.ResetFlag();
             await General.cam2.Stop();
             resetView();
 
@@ -56,6 +55,7 @@ namespace H170C_Tester
             //LEDを全消灯させる処理
             General.ResetIo();
             State.SetCam2Prop();
+            await Task.Delay(500);
         }
 
         private void resetView()
@@ -79,20 +79,21 @@ namespace H170C_Tester
         private void SaveCameraCommonProp()
         {
             //すべてのデータを保存する
-            State.camCommonProp.Brightness = General.cam1.Brightness;
-            State.camCommonProp.Contrast = General.cam1.Contrast;
-            State.camCommonProp.Hue = General.cam1.Hue;
-            State.camCommonProp.Saturation = General.cam1.Saturation;
-            State.camCommonProp.Sharpness = General.cam1.Sharpness;
-            State.camCommonProp.Gamma = General.cam1.Gamma;
-            State.camCommonProp.Gain = General.cam1.Gain;
-            State.camCommonProp.Exposure = General.cam1.Exposure;
-            State.camCommonProp.Theta = General.cam1.Theta;
-            State.camCommonProp.BinLevel = General.cam1.BinLevel;
+            State.camCommonProp.Brightness = General.cam2.Brightness;
+            State.camCommonProp.Contrast = General.cam2.Contrast;
+            State.camCommonProp.Hue = General.cam2.Hue;
+            State.camCommonProp.Saturation = General.cam2.Saturation;
+            State.camCommonProp.Sharpness = General.cam2.Sharpness;
+            State.camCommonProp.Gamma = General.cam2.Gamma;
+            State.camCommonProp.Gain = General.cam2.Gain;
+            State.camCommonProp.Exposure = General.cam2.Exposure;
+            State.camCommonProp.Whitebalance = General.cam2.Wb;
+            State.camCommonProp.Theta = General.cam2.Theta;
+            State.camCommonProp.BinLevel = General.cam2.BinLevel;
 
-            State.camCommonProp.Opening = General.cam1.Opening;
-            State.camCommonProp.OpenCnt = General.cam1.openCnt;
-            State.camCommonProp.CloseCnt = General.cam1.closeCnt;
+            State.camCommonProp.Opening = General.cam2.Opening;
+            State.camCommonProp.OpenCnt = General.cam2.openCnt;
+            State.camCommonProp.CloseCnt = General.cam2.closeCnt;
 
         }
         private void SaveRedLum()
@@ -394,9 +395,6 @@ namespace H170C_Tester
 
         }
 
-        private void buttonShowCamProp_Click(object sender, RoutedEventArgs e)
-        {
-            General.cam2.ShowPropertyPage();
-        }
+
     }
 }

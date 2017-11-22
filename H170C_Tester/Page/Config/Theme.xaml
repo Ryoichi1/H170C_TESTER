@@ -13,19 +13,19 @@
         <Image x:Name="Pic1" Canvas.Left="31" Canvas.Top="36" Width="128" Cursor="Hand" PreviewMouseLeftButtonDown="Pic1_PreviewMouseLeftButtonDown">
             <Image.Source>
                 <BitmapImage DecodePixelWidth="128"
-				 UriSource="/Resources/Pic/chri1.jpg"/>
+				 UriSource="/Resources/Pic/snow.jpg"/>
             </Image.Source>
         </Image>
         <Image x:Name="Pic2" Canvas.Left="172" Canvas.Top="36" Width="136" Cursor="Hand" PreviewMouseLeftButtonDown="Pic2_PreviewMouseLeftButtonDown" Height="83">
             <Image.Source>
                 <BitmapImage DecodePixelWidth="128"
-        			UriSource="/Resources/Pic/chri2.jpg"/>
+        			UriSource="/Resources/Pic/wa_winter.jpg"/>
             </Image.Source>
         </Image>
         <Image x:Name="Pic3" Canvas.Left="320" Canvas.Top="39" Width="129" Cursor="Hand" PreviewMouseLeftButtonDown="Pic3_PreviewMouseLeftButtonDown" Height="77">
             <Image.Source>
                 <BitmapImage DecodePixelWidth="128"
-        			UriSource="/Resources/Pic/taki.jpg"/>
+        			UriSource="/Resources/Pic/night.jpg"/>
             </Image.Source>
         </Image>
 
@@ -55,8 +55,6 @@
             </Image.Source>
         </Image>
         <TextBlock Height="29" Canvas.Left="31" TextWrapping="Wrap" Text="背景透明度" Canvas.Top="159" Width="137" Foreground="White" FontSize="18"/>
-        <Slider x:Name="SliderBlurEffectRadius" Height="17" Canvas.Left="31" Canvas.Top="260" Width="201" Background="#FF35383A" Maximum="40" TickPlacement="Both" Value="{Binding ThemeBlurEffectRadius}" Style="{DynamicResource FlatSlider}" BorderBrush="#FF0BCCF7" SmallChange="1" TickFrequency="4" ValueChanged="SliderBlurEffectRadius_ValueChanged"/>
-        <TextBlock Height="29" Canvas.Left="31" TextWrapping="Wrap" Text="背景ぼかし" Canvas.Top="229" Width="137" Foreground="White" FontSize="18"/>
 
 
 
