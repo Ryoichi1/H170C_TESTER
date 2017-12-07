@@ -175,7 +175,6 @@
             <Button x:Name="buttonSendTarget" Content="送信"  Height="29" Canvas.Left="31" Canvas.Top="43" Width="90" FontSize="16" Style="{DynamicResource SquareButtonStyle}" Controls:ControlsHelper.ContentCharacterCasing="Normal" FontFamily="Meiryo UI" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.5,0.5" Padding="0" ScrollViewer.CanContentScroll="True" BorderThickness="1" Background="{x:Null}" Click="buttonSendTarget_Click"/>
             <TextBox x:Name="tbCommandTarget" Height="29" Canvas.Left="131" TextWrapping="Wrap" Canvas.Top="43" Width="175" FontSize="18" BorderBrush="White" Background="{x:Null}"/>
         </Canvas>
-        <Button Content="Button" Height="34" Canvas.Left="594" Canvas.Top="94" Width="156" Click="Button_Click"/>
 
     </Canvas>
 </Page>

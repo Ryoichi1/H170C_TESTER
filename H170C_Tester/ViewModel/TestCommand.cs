@@ -81,6 +81,9 @@ namespace H170C_Tester
                         {
                             while (true)
                             {
+                                if (Flags.OtherPage)
+                                    return;
+
                                 if (!General.CheckPress())
                                 {
                                     Flags.PressOpenCheckBeforeTest = false;

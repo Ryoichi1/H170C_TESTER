@@ -282,6 +282,7 @@ namespace H170C_Tester
         public CvCapture cap = null;
         public void Start()
         {
+            if (canExecute) return;//既にカメラが起動していたら何もしない ※stop忘れ防止 Stopするのを忘れてStartすると二重起動して異常動作します
             IsActive = true;
             canExecute = true;
             var im = new IplImage();     // カメラ画像格納用の変数

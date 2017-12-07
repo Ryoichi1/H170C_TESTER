@@ -86,10 +86,6 @@ namespace H170C_Tester
             LPC1768.SendDataTarget(tbCommandTarget.Text);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
 
-                General.SetK1_2(true);
-        }
     }
 }

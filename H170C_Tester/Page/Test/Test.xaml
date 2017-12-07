@@ -74,7 +74,7 @@
 
 
 
-        <Canvas x:Name="Canvas検査データ" Height="323" Canvas.Left="441" Canvas.Top="342" Width="459" IsEnabled="{Binding StartButtonEnable}">
+        <Canvas x:Name="Canvas検査データ" Height="323" Canvas.Left="388" Canvas.Top="342" Width="471" IsEnabled="{Binding StartButtonEnable}">
             <Canvas.Resources>
                 <Style TargetType="{x:Type Label}">
                     <Setter Property="Height"  Value="20"/>
@@ -423,7 +423,7 @@
                 <DropShadowEffect Color="#FF09A0F7" Direction="0" ShadowDepth="0" BlurRadius="20"/>
             </Label.Effect>
         </Label>
-        <Canvas x:Name="CanvasComm" Height="111" Canvas.Left="386" Canvas.Top="132" Width="513">
+        <Canvas x:Name="CanvasComm" Height="111" Canvas.Left="386" Canvas.Top="132" Width="473">
             <Canvas.Resources>
                 <Style TargetType="{x:Type Label}">
                     <Setter Property="FontSize" Value="11"/>
@@ -441,12 +441,12 @@
             <Canvas.Background>
                 <SolidColorBrush Color="White" Opacity="0.1"/>
             </Canvas.Background>
-            <TextBlock Height="30" Canvas.Left="30" Canvas.Top="37" Width="210" Padding="5,0,0,0" TextWrapping="Wrap" Text="{Binding LPC1768_TX}" Foreground="White">
+            <TextBlock Height="30" Canvas.Left="30" Canvas.Top="37" Width="170" Padding="5,0,0,0" TextWrapping="Wrap" Text="{Binding LPC1768_TX}" Foreground="White">
                 <TextBlock.Background>
                     <SolidColorBrush Color="#FF00A2FF" Opacity="0.2"/>
                 </TextBlock.Background>
             </TextBlock>
-            <TextBlock Text="{Binding LPC1768_RX}" Height="30" Canvas.Left="30" Canvas.Top="71" Width="210" FontSize="12" Padding="5,0,0,0" TextWrapping="Wrap" Foreground="White">
+            <TextBlock Text="{Binding LPC1768_RX}" Height="30" Canvas.Left="30" Canvas.Top="71" Width="170" FontSize="12" Padding="5,0,0,0" TextWrapping="Wrap" Foreground="White">
                 <TextBlock.Background>
                     <SolidColorBrush Color="#FF00A2FF" Opacity="0.2"/>
                 </TextBlock.Background>
@@ -474,22 +474,22 @@
             <TextBlock x:Name="textBlock2_Copy2" TextWrapping="Wrap" Text="LPC1768通信" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="192" RenderTransformOrigin="0.5,0.5" Canvas.Top="11" Canvas.Left="8">
 
             </TextBlock>
-            <Label Content="" Height="1" Canvas.Left="8" Canvas.Top="32" Width="232" Background="#FF0388F7">
+            <Label Content="" Height="1" Canvas.Left="8" Canvas.Top="32" Width="192" Background="#FF0388F7">
                 <Label.Effect>
                     <DropShadowEffect Color="#FF09A0F7" Direction="0" ShadowDepth="0" BlurRadius="20"/>
                 </Label.Effect>
             </Label>
-            <TextBlock Height="30" Canvas.Left="279" Canvas.Top="36" Width="210" Padding="5,0,0,0" TextWrapping="Wrap" Text="{Binding TARGET_TX}" Foreground="White">
+            <TextBlock Height="30" Canvas.Left="237" Canvas.Top="36" Width="210" Padding="5,0,0,0" TextWrapping="Wrap" Text="{Binding TARGET_TX}" Foreground="White">
                 <TextBlock.Background>
                     <SolidColorBrush Color="#FF00A2FF" Opacity="0.2"/>
                 </TextBlock.Background>
             </TextBlock>
-            <TextBlock Text="{Binding TARGET_RX}" Height="30" Canvas.Left="279" Canvas.Top="70" Width="210" FontSize="12" Padding="5,0,0,0" TextWrapping="Wrap" Foreground="White">
+            <TextBlock Text="{Binding TARGET_RX}" Height="30" Canvas.Left="237" Canvas.Top="70" Width="210" FontSize="12" Padding="5,0,0,0" TextWrapping="Wrap" Foreground="White">
                 <TextBlock.Background>
                     <SolidColorBrush Color="#FF00A2FF" Opacity="0.2"/>
                 </TextBlock.Background>
             </TextBlock>
-            <TextBlock x:Name="textBlock2_Copy3" TextWrapping="Wrap" Text="Tx" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="21" RenderTransformOrigin="0.5,0.5" Canvas.Top="41" Canvas.Left="257">
+            <TextBlock x:Name="textBlock2_Copy3" TextWrapping="Wrap" Text="Tx" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="21" RenderTransformOrigin="0.5,0.5" Canvas.Top="41" Canvas.Left="215">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -499,7 +499,7 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <TextBlock x:Name="textBlock2_Copy4" TextWrapping="Wrap" Text="Rx" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="22" RenderTransformOrigin="0.5,0.5" Canvas.Top="74" Canvas.Left="256">
+            <TextBlock x:Name="textBlock2_Copy4" TextWrapping="Wrap" Text="Rx" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="22" RenderTransformOrigin="0.5,0.5" Canvas.Top="74" Canvas.Left="214">
                 <TextBlock.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -509,14 +509,14 @@
                     </TransformGroup>
                 </TextBlock.RenderTransform>
             </TextBlock>
-            <TextBlock x:Name="textBlock2_Copy6" TextWrapping="Wrap" Text="CAN通信" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="69" RenderTransformOrigin="0.5,0.5" Canvas.Top="10" Canvas.Left="257"/>
-            <Label Content="" Height="1" Canvas.Left="257" Canvas.Top="31" Width="245" Background="#FF0388F7">
+            <TextBlock x:Name="textBlock2_Copy6" TextWrapping="Wrap" Text="CAN通信" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="69" RenderTransformOrigin="0.5,0.5" Canvas.Top="10" Canvas.Left="215"/>
+            <Label Content="" Height="1" Canvas.Left="215" Canvas.Top="31" Width="245" Background="#FF0388F7">
                 <Label.Effect>
                     <DropShadowEffect Color="#FF09A0F7" Direction="0" ShadowDepth="0" BlurRadius="20"/>
                 </Label.Effect>
             </Label>
-            <Label x:Name="labelCan1" Content="CAN1 CN271"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding ColorCan1}" BorderThickness="1" Width="87" Height="20" Canvas.Left="329" Canvas.Top="8" FontSize="12" Padding="0" />
-            <Label x:Name="labelCan2" Content="CAN2 CN272"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding ColorCan2}" BorderThickness="1" Width="86" Height="20" Canvas.Left="416" Canvas.Top="8" Padding="0" FontSize="12" />
+            <Label x:Name="labelCan1" Content="CAN1 CN271"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding ColorCan1}" BorderThickness="1" Width="87" Height="20" Canvas.Left="283" Canvas.Top="8" FontSize="12" Padding="0" />
+            <Label x:Name="labelCan2" Content="CAN2 CN272"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding ColorCan2}" BorderThickness="1" Width="86" Height="20" Canvas.Left="370" Canvas.Top="8" Padding="0" FontSize="12" />
         </Canvas>
         <Controls:ProgressRing x:Name="RingWait" Canvas.Left="112" Canvas.Top="146" Height="120" Width="120" IsActive="{Binding IsActiveRing}">
             <!--<Controls:ProgressRing.Effect>
@@ -526,27 +526,27 @@
                 <SolidColorBrush Color="#CC1BC1FF" Opacity="0.3"/>
             </Controls:ProgressRing.Foreground>
         </Controls:ProgressRing>
-        <Canvas x:Name="CanvasImg1" Canvas.Left="942" Canvas.Top="210" Width="393" Height="225">
-            <Border BorderBrush="DodgerBlue"  BorderThickness="1" Height="222" Width="390" Canvas.Left="2" Canvas.Top="3"/>
-            <Image x:Name="im1" Width="384" Height="216" Stretch="UniformToFill" Source="{Binding source}" Canvas.Left="5" Canvas.Top="6" Opacity="{Binding ImageOpacity}" />
-            <Controls:ProgressRing x:Name="Ring1" Foreground="{DynamicResource AccentColorBrush}" Canvas.Left="175" Canvas.Top="83" Height="62" Width="62" IsActive="{Binding IsActive}"/>
+        <Canvas x:Name="CanvasImg1" Canvas.Left="873" Canvas.Top="141" Width="457" Height="262">
+            <Border BorderBrush="DodgerBlue"  BorderThickness="1" Height="256" Width="452" Canvas.Left="2" Canvas.Top="3"/>
+            <Image x:Name="im1" Width="448" Height="252" Stretch="UniformToFill" Source="{Binding source}" Canvas.Left="4" Canvas.Top="5" Opacity="{Binding ImageOpacity}" />
+            <Controls:ProgressRing x:Name="Ring1" Foreground="{DynamicResource AccentColorBrush}" Canvas.Left="183" Canvas.Top="91" Height="62" Width="62" IsActive="{Binding IsActive}"/>
             <TextBlock x:Name="textBlock2_Copy7" TextWrapping="Wrap" Text="Camera1" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="71" RenderTransformOrigin="0.5,0.5" Canvas.Top="6" Canvas.Left="4"/>
             <!-- ImageのWidthとHeightを個別に設定しないとUniformToFillが無効になります！！！ -->
         </Canvas>
-        <Canvas x:Name="CanvasImg2" Canvas.Left="942" Canvas.Top="440" Width="393" Height="225">
-            <Border BorderBrush="DodgerBlue"  BorderThickness="1" Height="222" Width="390" Canvas.Left="2" Canvas.Top="3"/>
-            <Image x:Name="im2" Width="384" Height="216" Stretch="UniformToFill" Source="{Binding source}" Canvas.Left="5" Canvas.Top="6" Opacity="{Binding ImageOpacity}" />
-            <Controls:ProgressRing x:Name="Ring2" Foreground="{DynamicResource AccentColorBrush}" Canvas.Left="175" Canvas.Top="83" Height="62" Width="62" IsActive="{Binding IsActive}"/>
+        <Canvas x:Name="CanvasImg2" Canvas.Left="873" Canvas.Top="406" Width="458" Height="260">
+            <Border BorderBrush="DodgerBlue"  BorderThickness="1" Height="254" Width="452" Canvas.Left="2" Canvas.Top="3"/>
+            <Image x:Name="im2" Width="448" Height="250" Stretch="UniformToFill" Source="{Binding source}" Canvas.Left="4" Canvas.Top="5" Opacity="{Binding ImageOpacity}" />
+            <Controls:ProgressRing x:Name="Ring2" Foreground="{DynamicResource AccentColorBrush}" Canvas.Left="187" Canvas.Top="83" Height="62" Width="62" IsActive="{Binding IsActive}"/>
             <TextBlock x:Name="textBlock2_Copy10" TextWrapping="Wrap" Text="Camera2" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="55" RenderTransformOrigin="0.5,0.5" Canvas.Top="6" Canvas.Left="5"/>
 
             <!-- ImageのWidthとHeightを個別に設定しないとUniformToFillが無効になります！！！ -->
         </Canvas>
-        <Button x:Name="ButtonStop" Content="強制停止" Controls:ControlsHelper.ContentCharacterCasing="Normal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="71" Width="208" BorderBrush="#FFABD6EA" FontSize="22" Canvas.Left="1112" Style="{DynamicResource AccentedSquareButtonStyle}" BorderThickness="1" ClipToBounds="True" Canvas.Top="69" RenderTransformOrigin="11.977,3.9" FontFamily="Segoe UI Light" Click="ButtonStop_Click" Opacity="{Binding StopButtonVis}" IsEnabled="{Binding StopButtonEnable}" >
+        <Button x:Name="ButtonStop" Content="強制停止" Controls:ControlsHelper.ContentCharacterCasing="Normal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="56" Width="208" BorderBrush="#FFABD6EA" FontSize="22" Canvas.Left="1112" Style="{DynamicResource AccentedSquareButtonStyle}" BorderThickness="1" ClipToBounds="True" Canvas.Top="69" RenderTransformOrigin="11.977,3.9" FontFamily="Segoe UI Light" Click="ButtonStop_Click" Opacity="{Binding StopButtonVis}" IsEnabled="{Binding StopButtonEnable}" >
             <Button.Background>
                 <SolidColorBrush Color="#FF125191" Opacity="0.6"/>
             </Button.Background>
         </Button>
-        <Canvas x:Name="CanvasComm_Copy" Height="81" Canvas.Left="387" Canvas.Top="252" Width="512">
+        <Canvas x:Name="CanvasComm_Copy" Height="81" Canvas.Left="387" Canvas.Top="252" Width="472">
             <Canvas.Resources>
                 <Style TargetType="{x:Type Label}">
                     <Setter Property="FontSize" Value="18"/>
