@@ -39,7 +39,7 @@ namespace H170C_Tester
         {
             //オーディオリソースを取り出す
             General.soundPass = new SoundPlayer(@"Resources\Wav\Pass.wav");
-            General.soundPassLong = new SoundPlayer(@"Resources\Wav\PassLong.wav");
+            General.soundPassLong = new SoundPlayer(@"Resources\Wav\VictoryLong.wav");
             General.soundFail = new SoundPlayer(@"Resources\Wav\Fail.wav");
             General.soundAlarm = new SoundPlayer(@"Resources\Wav\Alarm.wav");
             General.soundSuccess = new SoundPlayer(@"Resources\Wav\Success.wav");
