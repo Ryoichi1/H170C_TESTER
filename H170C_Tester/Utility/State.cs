@@ -80,7 +80,6 @@ namespace H170C_Tester
             Setting = Deserialize<Configuration>(Constants.filePath_Configuration);
 
 
-            VmMainWindow.ListOperator = Setting.作業者リスト;
             VmMainWindow.Theme = Setting.PathTheme;
             VmMainWindow.ThemeOpacity = Setting.OpacityTheme;
 
@@ -150,7 +149,6 @@ namespace H170C_Tester
             try
             {
                 //Configファイルの保存
-                Setting.作業者リスト = VmMainWindow.ListOperator;
                 Setting.PathTheme = VmMainWindow.Theme;
                 Setting.OpacityTheme = VmMainWindow.ThemeOpacity;
 

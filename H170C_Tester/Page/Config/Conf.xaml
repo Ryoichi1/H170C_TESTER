@@ -54,10 +54,7 @@
             <TabItem x:Name="TabCamera2" Header="カメラ2設定" Margin="850,96,-850,-95" Width="127" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Controls:ControlsHelper.HeaderFontSize="18" Loaded="TabCamera2_Loaded" >
                 <Frame x:Name="FrameCamera2" FlowDirection="LeftToRight" Margin="-8,-16,190,1" />
             </TabItem>
-            <TabItem x:Name="TabOperator" Header="作業者リスト編集" Margin="721,130,-721,-131" Width="158" HorizontalAlignment="Left" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Loaded="TabOperator_Loaded" Controls:ControlsHelper.HeaderFontSize="18">
-                <Frame x:Name="FrameOperator" FlowDirection="LeftToRight" Margin="4,-13,196,1"/>
-            </TabItem>
-            <TabItem x:Name="TabTheme" Header="テーマ" Margin="572,164,-604,-164" Loaded="TabTheme_Loaded" Controls:ControlsHelper.HeaderFontSize="18">
+            <TabItem x:Name="TabTheme" Header="テーマ" Margin="732,134,-764,-134" Loaded="TabTheme_Loaded" Controls:ControlsHelper.HeaderFontSize="18">
                 <Frame x:Name="FrameTheme" FlowDirection="LeftToRight" Margin="38,-28,193,10" Width="1043" />
             </TabItem>
         </TabControl>

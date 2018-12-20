@@ -39,7 +39,7 @@ namespace H170C_Tester
         {
             //オーディオリソースを取り出す
             General.soundPass = new SoundPlayer(@"Resources\Wav\Pass.wav");
-            General.soundPassLong = new SoundPlayer(@"Resources\Wav\VictoryLong.wav");
+            General.soundPassLong = new SoundPlayer(@"Resources\Wav\PassLong.wav");
             General.soundFail = new SoundPlayer(@"Resources\Wav\Fail.wav");
             General.soundAlarm = new SoundPlayer(@"Resources\Wav\Alarm.wav");
             General.soundSuccess = new SoundPlayer(@"Resources\Wav\Success.wav");
@@ -158,7 +158,6 @@ namespace H170C_Tester
                 "AssemblyVer " + State.AssemblyInfo,
                 "TestSpecVer " + State.TestSpec.TestSpecVer,
                 System.DateTime.Now.ToString("yyyy年MM月dd日(ddd) HH:mm:ss"),
-                State.VmMainWindow.Operator,
                 State.VmTestStatus.FwVer,
                 State.VmTestStatus.FwSum,
 
@@ -264,7 +263,9 @@ namespace H170C_Tester
                 var dataList = new List<string>();
                 dataList = MakePassTestData();
 
-                var OkDataFilePath = Constants.PassDataFolderPath + State.VmMainWindow.Opecode + ".csv";
+                var fileName = System.DateTime.Now.ToString("yyyy年MM月dd日");
+
+                var OkDataFilePath = Constants.PassDataFolderPath + fileName + ".csv";
 
                 if (!System.IO.File.Exists(OkDataFilePath))
                 {
@@ -303,7 +304,9 @@ namespace H170C_Tester
         {
             try
             {
-                var NgDataFilePath = Constants.FailDataFolderPath + State.VmMainWindow.Opecode + ".csv";
+                var fileName = System.DateTime.Now.ToString("yyyy年MM月dd日");
+
+                var NgDataFilePath = Constants.FailDataFolderPath + fileName + ".csv";
                 if (!File.Exists(NgDataFilePath))
                 {
                     //既存検査データがなければ新規作成
@@ -484,7 +487,6 @@ namespace H170C_Tester
 
             State.VmTestStatus.RetryLabelVis = System.Windows.Visibility.Hidden;
             State.VmTestStatus.TestSettingEnable = true;
-            State.VmMainWindow.OperatorEnable = true;
 
         }
 

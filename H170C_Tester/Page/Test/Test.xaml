@@ -385,7 +385,7 @@
             <Canvas.Background>
                 <SolidColorBrush Color="White" Opacity="0.1"/>
             </Canvas.Background>
-            <Canvas x:Name="canvasUnitTest" Height="34" Canvas.Left="149" Canvas.Top="18" Width="283" IsVisibleChanged="canvasUnitTest_IsVisibleChanged" IsEnabled="{Binding UnitTestEnable}">
+            <Canvas x:Name="canvasUnitTest" Height="34" Canvas.Left="149" Canvas.Top="18" Width="283" IsVisibleChanged="canvasUnitTest_IsVisibleChanged">
                 <CheckBox x:Name="CheckBoxUnitTest" Content="単体試験" IsChecked="{Binding CheckUnitTest}" Height="27" Width="75" Background="White" Foreground="#FFFDFDFD" Canvas.Left="5" Canvas.Top="5"/>
                 <ComboBox x:Name="cbUnitTest" Height="27" Width="189" ItemsSource="{Binding UnitTestItems}" SelectedItem="{Binding UnitTestName}" BorderBrush="White" Canvas.Left="85" VerticalContentAlignment="Center" Canvas.Top="5" Background="{x:Null}"/>
             </Canvas>

@@ -11,6 +11,6 @@ namespace H170C_Tester
 
         public string PathTheme { get; set; }
         public double OpacityTheme { get; set; }
-        public List<string> 作業者リスト { get; set; }
+
     }
 }

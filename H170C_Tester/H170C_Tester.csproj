@@ -167,9 +167,6 @@
     <Compile Include="Page\Config\Conf.xaml.cs">
       <DependentUpon>Conf.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Page\Config\EditOpeList.xaml.cs">
-      <DependentUpon>EditOpeList.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Page\Config\Mente.xaml.cs">
       <DependentUpon>Mente.xaml</DependentUpon>
     </Compile>
@@ -194,7 +191,6 @@
     <Compile Include="ViewModel\ProgressConverter.cs" />
     <Compile Include="ViewModel\TestCommand.cs" />
     <Compile Include="ViewModel\ViewModelCommunication.cs" />
-    <Compile Include="ViewModel\ViewModelEdit.cs" />
     <Compile Include="ViewModel\ViewModelMainWindow.cs" />
     <Compile Include="ViewModel\ViewModelTestResult.cs" />
     <Compile Include="ViewModel\ViewModelTestStatus.cs" />
@@ -220,10 +216,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Page\Config\Conf.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Page\Config\EditOpeList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
