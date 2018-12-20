@@ -22,14 +22,6 @@ namespace H170C_Tester
             this.DataContext = General.cam1;
             canvasLdPoint.DataContext = State.VmCamera1Point;
             toggleSw.IsChecked = General.cam1.Opening;
-
-            IsEnableSave = false;
-
-            buttonSaveRed.IsEnabled = false;
-            buttonSaveGreen.IsEnabled = false;
-            buttonSaveBlue.IsEnabled = false;
-            buttonSavePoint.IsEnabled = false;
-
         }
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
@@ -42,6 +34,11 @@ namespace H170C_Tester
             tbPoint.Visibility = System.Windows.Visibility.Hidden;
             tbHsv.Visibility = System.Windows.Visibility.Hidden;
 
+            IsEnableSave = false;
+            buttonSaveRed.IsEnabled = false;
+            buttonSaveGreen.IsEnabled = false;
+            buttonSaveBlue.IsEnabled = false;
+            buttonSavePoint.IsEnabled = false;
         }
 
         private async void Page_Unloaded(object sender, RoutedEventArgs e)
