@@ -43,7 +43,7 @@ namespace H170C_Tester
 
             InitMainForm();//メインフォーム初期
 
-            //this.WindowState = WindowState.Maximized;
+            this.WindowState = WindowState.Maximized;
 
             Flags.PressOpenCheckBeforeTest = true;//アプリ立ち上げ時はtrueにしておく
 
