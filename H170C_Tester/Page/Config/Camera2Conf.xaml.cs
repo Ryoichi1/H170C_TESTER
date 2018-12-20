@@ -14,7 +14,7 @@ namespace H170C_Tester
     /// </summary>
     public partial class Camera2Conf
     {
-
+        bool IsEnableSave;
 
         public Camera2Conf()
         {
@@ -22,6 +22,13 @@ namespace H170C_Tester
             this.DataContext = General.cam2;
             canvasLdPoint.DataContext = State.VmCamera2Point;
             toggleSw.IsChecked = General.cam2.Opening;
+
+            IsEnableSave = false;
+
+            buttonSaveRed.IsEnabled = false;
+            buttonSaveGreen.IsEnabled = false;
+            buttonSaveBlue.IsEnabled = false;
+            buttonSavePoint.IsEnabled = false;
         }
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
@@ -167,11 +174,18 @@ namespace H170C_Tester
         bool RedOn;
         private async void buttonRed_Click(object sender, RoutedEventArgs e)
         {
-            if (BlueOn || GreenOn) return;
+            if (!General.CheckPress())
+            {
+                MessageBox.Show("プレス治具のレバーを下げてください");
+                return;
+            }
+
+            if (BlueOn || GreenOn || FlagLabeling) return;
 
             RedOn = !RedOn;
             if (RedOn)
             {
+                buttonSaveRed.IsEnabled = true;
                 buttonRed.Background = General.OnBrush;
                 await Task.Run(() =>
                 {
@@ -185,6 +199,7 @@ namespace H170C_Tester
             }
             else
             {
+                buttonSaveRed.IsEnabled = false;
                 buttonRed.Background = General.OffBrush;
                 LPC1768.SendDataTarget("C");//LED7,8の赤
             }
@@ -194,11 +209,18 @@ namespace H170C_Tester
         bool BlueOn;
         private async void buttonBlue_Click(object sender, RoutedEventArgs e)
         {
-            if (RedOn || GreenOn) return;
+            if (!General.CheckPress())
+            {
+                MessageBox.Show("プレス治具のレバーを下げてください");
+                return;
+            }
+
+            if (RedOn || GreenOn || FlagLabeling) return;
 
             BlueOn = !BlueOn;
             if (BlueOn)
             {
+                buttonSaveBlue.IsEnabled = true;
                 buttonBlue.Background = General.OnBrush;
                 await Task.Run(() =>
                 {
@@ -212,6 +234,7 @@ namespace H170C_Tester
             }
             else
             {
+                buttonSaveBlue.IsEnabled = false;
                 buttonBlue.Background = General.OffBrush;
                 LPC1768.SendDataTarget("C");//LED7,8の赤
             }
@@ -220,11 +243,17 @@ namespace H170C_Tester
         bool GreenOn;
         private async void buttonGreen_Click(object sender, RoutedEventArgs e)
         {
-            if (RedOn || BlueOn) return;
+            if (!General.CheckPress())
+            {
+                MessageBox.Show("プレス治具のレバーを下げてください");
+                return;
+            }
+            if (RedOn || BlueOn || FlagLabeling) return;
 
             GreenOn = !GreenOn;
             if (GreenOn)
             {
+                buttonSaveGreen.IsEnabled = true;
                 buttonGreen.Background = General.OnBrush;
                 await Task.Run(() =>
                 {
@@ -238,6 +267,7 @@ namespace H170C_Tester
             }
             else
             {
+                buttonSaveGreen.IsEnabled = false;
                 buttonGreen.Background = General.OffBrush;
                 LPC1768.SendDataTarget("C");//LED7,8の赤
             }
@@ -293,8 +323,34 @@ namespace H170C_Tester
 
 
                     var SortRectBlob = rectBlobs.OrderByDescending(b => b.Value.Centroid.X).ToList();
-                    if (SortRectBlob.Count() != 7) continue;
+                    if (SortRectBlob.Count() != 7)
+                    {
+                        State.VmCamera2Point.LED8 = "";
+                        State.VmCamera2Point.LED8Lum = "";
 
+                        State.VmCamera2Point.LED9 = "";
+                        State.VmCamera2Point.LED9Lum = "";
+
+                        State.VmCamera2Point.LED10 = "";
+                        State.VmCamera2Point.LED10Lum = "";
+
+                        State.VmCamera2Point.LED11 = "";
+                        State.VmCamera2Point.LED11Lum = "";
+
+                        State.VmCamera2Point.LED12 = "";
+                        State.VmCamera2Point.LED12Lum = "";
+
+                        State.VmCamera2Point.LED13 = "";
+                        State.VmCamera2Point.LED13Lum = "";
+
+                        State.VmCamera2Point.LED14 = "";
+                        State.VmCamera2Point.LED14Lum = "";
+
+                        IsEnableSave = false;
+                        continue;
+                    }
+
+                    IsEnableSave = true;
 
 
                     //ビューモデルの更新
@@ -320,12 +376,39 @@ namespace H170C_Tester
                     State.VmCamera2Point.LED14Lum = SortRectBlob[6].Value.Area.ToString();
                 }
 
+                //終了処理
+                State.VmCamera2Point.LED8 = "";
+                State.VmCamera2Point.LED8Lum = "";
+
+                State.VmCamera2Point.LED9 = "";
+                State.VmCamera2Point.LED9Lum = "";
+
+                State.VmCamera2Point.LED10 = "";
+                State.VmCamera2Point.LED10Lum = "";
+
+                State.VmCamera2Point.LED11 = "";
+                State.VmCamera2Point.LED11Lum = "";
+
+                State.VmCamera2Point.LED12 = "";
+                State.VmCamera2Point.LED12Lum = "";
+
+                State.VmCamera2Point.LED13 = "";
+                State.VmCamera2Point.LED13Lum = "";
+
+                State.VmCamera2Point.LED14 = "";
+                State.VmCamera2Point.LED14Lum = "";
+
+                IsEnableSave = false;
+
             });
         }
 
         bool FlagLabeling;
         private void buttonLabeling_Click(object sender, RoutedEventArgs e)
         {
+            if (!RedOn && !GreenOn && !BlueOn)
+                return;
+
             FlagLabeling = !FlagLabeling;
 
             buttonBin.IsEnabled = !FlagLabeling;
@@ -334,6 +417,7 @@ namespace H170C_Tester
 
             if (FlagLabeling)
             {
+                buttonSavePoint.IsEnabled = true;
                 General.cam2.ResetFlag();
                 General.cam2.FlagLabeling = true;
 
@@ -341,6 +425,7 @@ namespace H170C_Tester
             }
             else
             {
+                buttonSavePoint.IsEnabled = false;
                 General.cam2.ResetFlag();
             }
 
@@ -357,6 +442,8 @@ namespace H170C_Tester
 
         private async void buttonSaveRed_Click(object sender, RoutedEventArgs e)
         {
+            if (!IsEnableSave)
+                return;
 
             buttonSaveRed.Background = Brushes.DodgerBlue;
             SaveRedLum();
@@ -367,6 +454,8 @@ namespace H170C_Tester
 
         private async void buttonSaveBlue_Click(object sender, RoutedEventArgs e)
         {
+            if (!IsEnableSave)
+                return;
 
             buttonSaveBlue.Background = Brushes.DodgerBlue;
             SaveBlueLum();
@@ -377,6 +466,8 @@ namespace H170C_Tester
 
         private async void buttonSaveGreen_Click(object sender, RoutedEventArgs e)
         {
+            if (!IsEnableSave)
+                return;
 
             buttonSaveGreen.Background = Brushes.DodgerBlue;
             SaveGreenLum();
@@ -387,6 +478,9 @@ namespace H170C_Tester
 
         private async void buttonSavePoint_Click(object sender, RoutedEventArgs e)
         {
+            if (!IsEnableSave)
+                return;
+
             buttonSavePoint.Background = Brushes.DodgerBlue;
             SavePoint();
             await Task.Delay(150);

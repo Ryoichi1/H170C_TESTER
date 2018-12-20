@@ -331,8 +331,11 @@ namespace H170C_Tester
             }
         }
 
-
-        public static bool CheckPress()//レバーが下がっていればTrueを返す
+        /// <summary>
+        ///レバーが下がっていればTrueを返す 
+        /// </summary>
+        /// <returns></returns>
+        public static bool CheckPress()
         {
             LPC1768.SendData1768("R_PRESS", setLog: false);
             return LPC1768.RecieveData.Contains("0");
