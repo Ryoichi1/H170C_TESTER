@@ -26,6 +26,8 @@ namespace H170C_Tester
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            if (!General.cam2.CamState)
+                return;
             State.VmMainWindow.MainWinEnable = false;
             await Task.Delay(1200);
             State.VmMainWindow.MainWinEnable = true;
@@ -47,7 +49,6 @@ namespace H170C_Tester
             RedOn = false;
             BlueOn = false;
             GreenOn = false;
-            await General.cam2.Stop();
             resetView();
 
             FlagLabeling = false;
@@ -60,6 +61,9 @@ namespace H170C_Tester
             //TODO:
             //LEDを全消灯させる処理
             General.ResetIo();
+            if (!General.cam2.CamState)
+                return;
+            await General.cam2.Stop();
             State.SetCam2Prop();
             await Task.Delay(500);
         }
