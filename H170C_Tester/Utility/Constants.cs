@@ -17,24 +17,25 @@ namespace H170C_Tester
         public const string MessWait = "検査中！　しばらくお待ちください・・・";
         public const string MessCheckConnectMachine = "周辺機器の接続を確認してください！";
 
-        public static readonly string filePath_TestSpec = @"C:\H170C\ConfigData\TestSpec.config";
-        public static readonly string filePath_Configuration = @"C:\H170C\ConfigData\Configuration.config";
-        public static readonly string filePath_Camera1Property = @"C:\H170C\ConfigData\Camera1Property.config";
-        public static readonly string filePath_Camera2Property = @"C:\H170C\ConfigData\Camera2Property.config";
-        public static readonly string filePath_CameraCommonProperty = @"C:\H170C\ConfigData\CameraCommonProperty.config";
+        public static readonly string RootPath = State.MachineName == "TSPCDP00059" ? @"D:\試験機用設定ファイル\H170C" :  @"C:\H170C";
+        public static readonly string filePath_TestSpec = $@"{RootPath}\ConfigData\TestSpec.config";
+        public static readonly string filePath_Configuration = $@"{RootPath}\ConfigData\Configuration.config";
+        public static readonly string filePath_Camera1Property = $@"{RootPath}\ConfigData\Camera1Property.config";
+        public static readonly string filePath_Camera2Property = $@"{RootPath}\ConfigData\Camera2Property.config";
+        public static readonly string filePath_CameraCommonProperty = $@"{RootPath}\ConfigData\CameraCommonProperty.config";
 
-        public static readonly string filePath_Cam1CalFilePath = @"C:\H170C\ConfigData\AN170600068.xml";
-        public static readonly string filePath_Cam2CalFilePath = @"C:\H170C\ConfigData\AN170600009.xml";
+        public static readonly string filePath_Cam1CalFilePath = $@"{RootPath}\ConfigData\AN170600068.xml";
+        public static readonly string filePath_Cam2CalFilePath = $@"{RootPath}\ConfigData\AN170600009.xml";
 
-        public static readonly string RwsPath_Test = @"C:\H170C\FW_WRITE\ForTest\H170C_Write\H170C_Write.AWS";
-        public static readonly string RwsPath_Product = @"C:\H170C\FW_WRITE\ForProduct\H170C_Write\H170C_Write.AWS";
+        public static readonly string RwsPath_Test = $@"{RootPath}\FW_WRITE\ForTest\H170C_Write\H170C_Write.AWS";
+        public static readonly string RwsPath_Product = $@"{RootPath}\FW_WRITE\ForProduct\H170C_Write\H170C_Write.AWS";
 
-        public static readonly string Path_Manual = @"C:\H170C\Manual.pdf";
+        public static readonly string Path_Manual = $@"{RootPath}\Manual.pdf";
 
         //検査データフォルダのパス
-        public static readonly string PassDataFolderPath = @"C:\H170C\検査データ\合格品データ\";
-        public static readonly string FailDataFolderPath = @"C:\H170C\検査データ\不良品データ\";
-        public static readonly string fileName_RetryLog  = @"C:\H170C\検査データ\不良品データ\" + "リトライ履歴.txt";
+        public static readonly string PassDataFolderPath = $@"{RootPath}\検査データ\合格品データ\";
+        public static readonly string FailDataFolderPath = $@"{RootPath}\検査データ\不良品データ\";
+        public static readonly string fileName_RetryLog = $@"{RootPath}\検査データ\不良品データ\" + "リトライ履歴.txt";
 
         //Imageの透明度
         public const double OpacityImgMin = 0.0;

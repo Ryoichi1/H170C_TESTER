@@ -47,7 +47,7 @@ namespace H170C_Tester
         public static double CurrentThemeOpacity { get; set; }
 
         public static Uri uriOtherInfoPage { get; set; }
-
+        public static string MachineName { get; set; }
 
         //リトライ履歴保存用リスト
         public static List<string> RetryLogList = new List<string>();
