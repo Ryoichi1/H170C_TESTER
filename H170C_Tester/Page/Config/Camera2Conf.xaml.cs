@@ -6,6 +6,7 @@ using System.Windows.Input;
 using System.Linq;
 using System;
 using System.Threading;
+using static System.Threading.Thread;
 
 namespace H170C_Tester
 {
@@ -37,11 +38,6 @@ namespace H170C_Tester
             tbHsv.Visibility = System.Windows.Visibility.Hidden;
 
             IsEnableSave = false;
-
-            buttonSaveRed.IsEnabled = false;
-            buttonSaveGreen.IsEnabled = false;
-            buttonSaveBlue.IsEnabled = false;
-            buttonSavePoint.IsEnabled = false;
         }
 
         private async void Page_Unloaded(object sender, RoutedEventArgs e)
@@ -52,10 +48,8 @@ namespace H170C_Tester
             resetView();
 
             FlagLabeling = false;
-            BinSw = false;
 
             buttonLabeling.IsEnabled = true;
-            buttonBin.IsEnabled = true;
             canvasLdPoint.IsEnabled = true;
 
             //TODO:
@@ -73,7 +67,6 @@ namespace H170C_Tester
             buttonRed.Background = General.OffBrush;
             buttonBlue.Background = General.OffBrush;
             buttonGreen.Background = General.OffBrush;
-            buttonBin.Background = General.OffBrush;
 
             State.VmCamera2Point.LED8 = "";
             State.VmCamera2Point.LED9 = "";
@@ -83,6 +76,29 @@ namespace H170C_Tester
             State.VmCamera2Point.LED13 = "";
             State.VmCamera2Point.LED14 = "";
 
+            State.VmCamera2Point.LED8LumR = "";
+            State.VmCamera2Point.LED9LumR = "";
+            State.VmCamera2Point.LED10LumR = "";
+            State.VmCamera2Point.LED11LumR = "";
+            State.VmCamera2Point.LED12LumR = "";
+            State.VmCamera2Point.LED13LumR = "";
+            State.VmCamera2Point.LED14LumR = "";
+
+            State.VmCamera2Point.LED8LumG = "";
+            State.VmCamera2Point.LED9LumG = "";
+            State.VmCamera2Point.LED10LumG = "";
+            State.VmCamera2Point.LED11LumG = "";
+            State.VmCamera2Point.LED12LumG = "";
+            State.VmCamera2Point.LED13LumG = "";
+            State.VmCamera2Point.LED14LumG = "";
+
+            State.VmCamera2Point.LED8LumB = "";
+            State.VmCamera2Point.LED9LumB = "";
+            State.VmCamera2Point.LED10LumB = "";
+            State.VmCamera2Point.LED11LumB = "";
+            State.VmCamera2Point.LED12LumB = "";
+            State.VmCamera2Point.LED13LumB = "";
+            State.VmCamera2Point.LED14LumB = "";
         }
 
 
@@ -108,33 +124,33 @@ namespace H170C_Tester
         }
         private void SaveRedLum()
         {
-            State.cam2Prop.LumRedLed8 = Double.Parse(State.VmCamera2Point.LED8Lum);
-            State.cam2Prop.LumRedLed9 = Double.Parse(State.VmCamera2Point.LED9Lum);
-            State.cam2Prop.LumRedLed10 = Double.Parse(State.VmCamera2Point.LED10Lum);
-            State.cam2Prop.LumRedLed11 = Double.Parse(State.VmCamera2Point.LED11Lum);
-            State.cam2Prop.LumRedLed12 = Double.Parse(State.VmCamera2Point.LED12Lum);
-            State.cam2Prop.LumRedLed13 = Double.Parse(State.VmCamera2Point.LED13Lum);
-            State.cam2Prop.LumRedLed14 = Double.Parse(State.VmCamera2Point.LED14Lum);
+            State.cam2Prop.LumRedLed8 = Double.Parse(State.VmCamera2Point.LED8LumR);
+            State.cam2Prop.LumRedLed9 = Double.Parse(State.VmCamera2Point.LED9LumR);
+            State.cam2Prop.LumRedLed10 = Double.Parse(State.VmCamera2Point.LED10LumR);
+            State.cam2Prop.LumRedLed11 = Double.Parse(State.VmCamera2Point.LED11LumR);
+            State.cam2Prop.LumRedLed12 = Double.Parse(State.VmCamera2Point.LED12LumR);
+            State.cam2Prop.LumRedLed13 = Double.Parse(State.VmCamera2Point.LED13LumR);
+            State.cam2Prop.LumRedLed14 = Double.Parse(State.VmCamera2Point.LED14LumR);
         }
         private void SaveBlueLum()
         {
-            State.cam2Prop.LumBlueLed8 = Double.Parse(State.VmCamera2Point.LED8Lum);
-            State.cam2Prop.LumBlueLed9 = Double.Parse(State.VmCamera2Point.LED9Lum);
-            State.cam2Prop.LumBlueLed10 = Double.Parse(State.VmCamera2Point.LED10Lum);
-            State.cam2Prop.LumBlueLed11 = Double.Parse(State.VmCamera2Point.LED11Lum);
-            State.cam2Prop.LumBlueLed12 = Double.Parse(State.VmCamera2Point.LED12Lum);
-            State.cam2Prop.LumBlueLed13 = Double.Parse(State.VmCamera2Point.LED13Lum);
-            State.cam2Prop.LumBlueLed14 = Double.Parse(State.VmCamera2Point.LED14Lum);
+            State.cam2Prop.LumBlueLed8 = Double.Parse(State.VmCamera2Point.LED8LumB);
+            State.cam2Prop.LumBlueLed9 = Double.Parse(State.VmCamera2Point.LED9LumB);
+            State.cam2Prop.LumBlueLed10 = Double.Parse(State.VmCamera2Point.LED10LumB);
+            State.cam2Prop.LumBlueLed11 = Double.Parse(State.VmCamera2Point.LED11LumB);
+            State.cam2Prop.LumBlueLed12 = Double.Parse(State.VmCamera2Point.LED12LumB);
+            State.cam2Prop.LumBlueLed13 = Double.Parse(State.VmCamera2Point.LED13LumB);
+            State.cam2Prop.LumBlueLed14 = Double.Parse(State.VmCamera2Point.LED14LumB);
         }
         private void SaveGreenLum()
         {
-            State.cam2Prop.LumGreenLed8 = Double.Parse(State.VmCamera2Point.LED8Lum);
-            State.cam2Prop.LumGreenLed9 = Double.Parse(State.VmCamera2Point.LED9Lum);
-            State.cam2Prop.LumGreenLed10 = Double.Parse(State.VmCamera2Point.LED10Lum);
-            State.cam2Prop.LumGreenLed11 = Double.Parse(State.VmCamera2Point.LED11Lum);
-            State.cam2Prop.LumGreenLed12 = Double.Parse(State.VmCamera2Point.LED12Lum);
-            State.cam2Prop.LumGreenLed13 = Double.Parse(State.VmCamera2Point.LED13Lum);
-            State.cam2Prop.LumGreenLed14 = Double.Parse(State.VmCamera2Point.LED14Lum);
+            State.cam2Prop.LumGreenLed8 = Double.Parse(State.VmCamera2Point.LED8LumG);
+            State.cam2Prop.LumGreenLed9 = Double.Parse(State.VmCamera2Point.LED9LumG);
+            State.cam2Prop.LumGreenLed10 = Double.Parse(State.VmCamera2Point.LED10LumG);
+            State.cam2Prop.LumGreenLed11 = Double.Parse(State.VmCamera2Point.LED11LumG);
+            State.cam2Prop.LumGreenLed12 = Double.Parse(State.VmCamera2Point.LED12LumG);
+            State.cam2Prop.LumGreenLed13 = Double.Parse(State.VmCamera2Point.LED13LumG);
+            State.cam2Prop.LumGreenLed14 = Double.Parse(State.VmCamera2Point.LED14LumG);
         }
 
         private void SavePoint()
@@ -188,7 +204,6 @@ namespace H170C_Tester
             RedOn = !RedOn;
             if (RedOn)
             {
-                buttonSaveRed.IsEnabled = true;
                 buttonRed.Background = General.OnBrush;
                 await Task.Run(() =>
                 {
@@ -202,7 +217,6 @@ namespace H170C_Tester
             }
             else
             {
-                buttonSaveRed.IsEnabled = false;
                 buttonRed.Background = General.OffBrush;
                 LPC1768.SendDataTarget("C");//LED7,8の赤
             }
@@ -223,7 +237,6 @@ namespace H170C_Tester
             BlueOn = !BlueOn;
             if (BlueOn)
             {
-                buttonSaveBlue.IsEnabled = true;
                 buttonBlue.Background = General.OnBrush;
                 await Task.Run(() =>
                 {
@@ -237,7 +250,6 @@ namespace H170C_Tester
             }
             else
             {
-                buttonSaveBlue.IsEnabled = false;
                 buttonBlue.Background = General.OffBrush;
                 LPC1768.SendDataTarget("C");//LED7,8の赤
             }
@@ -256,7 +268,6 @@ namespace H170C_Tester
             GreenOn = !GreenOn;
             if (GreenOn)
             {
-                buttonSaveGreen.IsEnabled = true;
                 buttonGreen.Background = General.OnBrush;
                 await Task.Run(() =>
                 {
@@ -270,29 +281,9 @@ namespace H170C_Tester
             }
             else
             {
-                buttonSaveGreen.IsEnabled = false;
                 buttonGreen.Background = General.OffBrush;
                 LPC1768.SendDataTarget("C");//LED7,8の赤
             }
-        }
-
-
-
-
-
-
-
-        bool BinSw = false;
-        private void buttonBin_Click(object sender, RoutedEventArgs e)
-        {
-            General.cam2.ResetFlag();
-            BinSw = !BinSw;
-            General.cam2.FlagBin = BinSw;
-            buttonBin.Background = BinSw ? Brushes.DodgerBlue : Brushes.Transparent;
-
-            buttonLabeling.IsEnabled = !BinSw;
-            canvasLdPoint.IsEnabled = !BinSw;
-
         }
 
 
@@ -308,8 +299,7 @@ namespace H170C_Tester
 
         private void labeling()
         {
-
-
+            IsEnableSave = false;
             Task.Run(() =>
             {
                 while (FlagLabeling)
@@ -328,26 +318,44 @@ namespace H170C_Tester
                     var SortRectBlob = rectBlobs.OrderByDescending(b => b.Value.Centroid.X).ToList();
                     if (SortRectBlob.Count() != 7)
                     {
+                        if (RedOn)
+                        {
+                            State.VmCamera2Point.LED8LumR = "";
+                            State.VmCamera2Point.LED9LumR = "";
+                            State.VmCamera2Point.LED10LumR = "";
+                            State.VmCamera2Point.LED11LumR = "";
+                            State.VmCamera2Point.LED12LumR = "";
+                            State.VmCamera2Point.LED13LumR = "";
+                            State.VmCamera2Point.LED14LumR = "";
+                        }
+                        else if (GreenOn)
+                        {
+                            State.VmCamera2Point.LED8LumG = "";
+                            State.VmCamera2Point.LED9LumG = "";
+                            State.VmCamera2Point.LED10LumG = "";
+                            State.VmCamera2Point.LED11LumG = "";
+                            State.VmCamera2Point.LED12LumG = "";
+                            State.VmCamera2Point.LED13LumG = "";
+                            State.VmCamera2Point.LED14LumG = "";
+                        }
+                        else if (BlueOn)
+                        {
+                            State.VmCamera2Point.LED8LumB = "";
+                            State.VmCamera2Point.LED9LumB = "";
+                            State.VmCamera2Point.LED10LumB = "";
+                            State.VmCamera2Point.LED11LumB = "";
+                            State.VmCamera2Point.LED12LumB = "";
+                            State.VmCamera2Point.LED13LumB = "";
+                            State.VmCamera2Point.LED14LumB = "";
+                        }
+
                         State.VmCamera2Point.LED8 = "";
-                        State.VmCamera2Point.LED8Lum = "";
-
                         State.VmCamera2Point.LED9 = "";
-                        State.VmCamera2Point.LED9Lum = "";
-
                         State.VmCamera2Point.LED10 = "";
-                        State.VmCamera2Point.LED10Lum = "";
-
                         State.VmCamera2Point.LED11 = "";
-                        State.VmCamera2Point.LED11Lum = "";
-
                         State.VmCamera2Point.LED12 = "";
-                        State.VmCamera2Point.LED12Lum = "";
-
                         State.VmCamera2Point.LED13 = "";
-                        State.VmCamera2Point.LED13Lum = "";
-
                         State.VmCamera2Point.LED14 = "";
-                        State.VmCamera2Point.LED14Lum = "";
 
                         IsEnableSave = false;
                         continue;
@@ -355,51 +363,47 @@ namespace H170C_Tester
 
                     IsEnableSave = true;
 
+                    //ビューモデルの更新
+                    if (RedOn)
+                    {
+                        State.VmCamera2Point.LED8LumR = SortRectBlob[0].Value.Area.ToString();
+                        State.VmCamera2Point.LED9LumR = SortRectBlob[1].Value.Area.ToString();
+                        State.VmCamera2Point.LED10LumR = SortRectBlob[2].Value.Area.ToString();
+                        State.VmCamera2Point.LED11LumR = SortRectBlob[3].Value.Area.ToString();
+                        State.VmCamera2Point.LED12LumR = SortRectBlob[4].Value.Area.ToString();
+                        State.VmCamera2Point.LED13LumR = SortRectBlob[5].Value.Area.ToString();
+                        State.VmCamera2Point.LED14LumR = SortRectBlob[6].Value.Area.ToString();
+                    }
+                    else if (GreenOn)
+                    {
+                        State.VmCamera2Point.LED8LumG = SortRectBlob[0].Value.Area.ToString();
+                        State.VmCamera2Point.LED9LumG = SortRectBlob[1].Value.Area.ToString();
+                        State.VmCamera2Point.LED10LumG = SortRectBlob[2].Value.Area.ToString();
+                        State.VmCamera2Point.LED11LumG = SortRectBlob[3].Value.Area.ToString();
+                        State.VmCamera2Point.LED12LumG = SortRectBlob[4].Value.Area.ToString();
+                        State.VmCamera2Point.LED13LumG = SortRectBlob[5].Value.Area.ToString();
+                        State.VmCamera2Point.LED14LumG = SortRectBlob[6].Value.Area.ToString();
+                    }
+                    else if (BlueOn)
+                    {
+                        State.VmCamera2Point.LED8LumB = SortRectBlob[0].Value.Area.ToString();
+                        State.VmCamera2Point.LED9LumB = SortRectBlob[1].Value.Area.ToString();
+                        State.VmCamera2Point.LED10LumB = SortRectBlob[2].Value.Area.ToString();
+                        State.VmCamera2Point.LED11LumB = SortRectBlob[3].Value.Area.ToString();
+                        State.VmCamera2Point.LED12LumB = SortRectBlob[4].Value.Area.ToString();
+                        State.VmCamera2Point.LED13LumB = SortRectBlob[5].Value.Area.ToString();
+                        State.VmCamera2Point.LED14LumB = SortRectBlob[6].Value.Area.ToString();
+                    }
 
                     //ビューモデルの更新
                     State.VmCamera2Point.LED8 = SortRectBlob[0].Value.Centroid.X.ToString("F0") + "/" + SortRectBlob[0].Value.Centroid.Y.ToString("F0");
-                    State.VmCamera2Point.LED8Lum = SortRectBlob[0].Value.Area.ToString();
-
                     State.VmCamera2Point.LED9 = SortRectBlob[1].Value.Centroid.X.ToString("F0") + "/" + SortRectBlob[1].Value.Centroid.Y.ToString("F0");
-                    State.VmCamera2Point.LED9Lum = SortRectBlob[1].Value.Area.ToString();
-
                     State.VmCamera2Point.LED10 = SortRectBlob[2].Value.Centroid.X.ToString("F0") + "/" + SortRectBlob[2].Value.Centroid.Y.ToString("F0");
-                    State.VmCamera2Point.LED10Lum = SortRectBlob[2].Value.Area.ToString();
-
                     State.VmCamera2Point.LED11 = SortRectBlob[3].Value.Centroid.X.ToString("F0") + "/" + SortRectBlob[3].Value.Centroid.Y.ToString("F0");
-                    State.VmCamera2Point.LED11Lum = SortRectBlob[3].Value.Area.ToString();
-
                     State.VmCamera2Point.LED12 = SortRectBlob[4].Value.Centroid.X.ToString("F0") + "/" + SortRectBlob[4].Value.Centroid.Y.ToString("F0");
-                    State.VmCamera2Point.LED12Lum = SortRectBlob[4].Value.Area.ToString();
-
                     State.VmCamera2Point.LED13 = SortRectBlob[5].Value.Centroid.X.ToString("F0") + "/" + SortRectBlob[5].Value.Centroid.Y.ToString("F0");
-                    State.VmCamera2Point.LED13Lum = SortRectBlob[5].Value.Area.ToString();
-
                     State.VmCamera2Point.LED14 = SortRectBlob[6].Value.Centroid.X.ToString("F0") + "/" + SortRectBlob[6].Value.Centroid.Y.ToString("F0");
-                    State.VmCamera2Point.LED14Lum = SortRectBlob[6].Value.Area.ToString();
                 }
-
-                //終了処理
-                State.VmCamera2Point.LED8 = "";
-                State.VmCamera2Point.LED8Lum = "";
-
-                State.VmCamera2Point.LED9 = "";
-                State.VmCamera2Point.LED9Lum = "";
-
-                State.VmCamera2Point.LED10 = "";
-                State.VmCamera2Point.LED10Lum = "";
-
-                State.VmCamera2Point.LED11 = "";
-                State.VmCamera2Point.LED11Lum = "";
-
-                State.VmCamera2Point.LED12 = "";
-                State.VmCamera2Point.LED12Lum = "";
-
-                State.VmCamera2Point.LED13 = "";
-                State.VmCamera2Point.LED13Lum = "";
-
-                State.VmCamera2Point.LED14 = "";
-                State.VmCamera2Point.LED14Lum = "";
 
                 IsEnableSave = false;
 
@@ -413,8 +417,6 @@ namespace H170C_Tester
                 return;
 
             FlagLabeling = !FlagLabeling;
-
-            buttonBin.IsEnabled = !FlagLabeling;
 
             buttonLabeling.Background = FlagLabeling ? General.OnBrush : General.OffBrush;
 
@@ -434,64 +436,149 @@ namespace H170C_Tester
 
         }
 
-        private async void buttonSaveCamProp_Click(object sender, RoutedEventArgs e)
-        {
-            buttonSaveCamProp.Background = Brushes.DodgerBlue;
-            SaveCameraCommonProp();
-            await Task.Delay(150);
-            General.PlaySound(General.soundSuccess);
-            buttonSaveCamProp.Background = Brushes.Transparent;
-        }
-
-        private async void buttonSaveRed_Click(object sender, RoutedEventArgs e)
-        {
-            if (!IsEnableSave)
-                return;
-
-            buttonSaveRed.Background = Brushes.DodgerBlue;
-            SaveRedLum();
-            await Task.Delay(150);
-            General.PlaySound(General.soundSuccess);
-            buttonSaveRed.Background = Brushes.Transparent;
-        }
-
-        private async void buttonSaveBlue_Click(object sender, RoutedEventArgs e)
-        {
-            if (!IsEnableSave)
-                return;
-
-            buttonSaveBlue.Background = Brushes.DodgerBlue;
-            SaveBlueLum();
-            await Task.Delay(150);
-            General.PlaySound(General.soundSuccess);
-            buttonSaveBlue.Background = Brushes.Transparent;
-        }
-
-        private async void buttonSaveGreen_Click(object sender, RoutedEventArgs e)
-        {
-            if (!IsEnableSave)
-                return;
-
-            buttonSaveGreen.Background = Brushes.DodgerBlue;
-            SaveGreenLum();
-            await Task.Delay(150);
-            General.PlaySound(General.soundSuccess);
-            buttonSaveGreen.Background = Brushes.Transparent;
-        }
 
         private async void buttonSavePoint_Click(object sender, RoutedEventArgs e)
         {
-            if (!IsEnableSave)
-                return;
+            try
+            {
+                if (!General.CheckPress())
+                {
+                    MessageBox.Show("プレス治具のレバーを下げてください");
+                    return;
+                }
 
-            buttonSavePoint.Background = Brushes.DodgerBlue;
-            SavePoint();
-            await Task.Delay(150);
-            General.PlaySound(General.soundSuccess);
-            buttonSavePoint.Background = Brushes.Transparent;
+                if (RedOn || BlueOn || GreenOn || FlagLabeling) return;
+
+                buttonSavePoint.Background = Brushes.DodgerBlue;
+
+                ///////////////////////////////////////////////////
+                //赤を点灯させる処理
+                ///////////////////////////////////////////////////
+                await Task.Run(() =>
+                {
+                    General.PowSupply(true);
+                    LPC1768.SendDataTarget("WP2501");//LED9,10の赤
+                    LPC1768.SendDataTarget("WP3301");//LED11,12の赤
+                    LPC1768.SendDataTarget("WP3701");//LED13,14の赤
+                    LPC1768.SendDataTarget("WP2201");//LED7,8の赤
+
+                    RedOn = true;//
+                    GreenOn = false;
+                    BlueOn = false;
+                    Sleep(1000);
+
+                    //ラベリング処理
+                    FlagLabeling = true;
+                    General.cam2.ResetFlag();
+                    General.cam2.FlagLabeling = true;
+                    labeling();
+                    var tm = new GeneralTimer(5000);
+                    tm.Start();
+                    while (true)
+                    {
+                        if (tm.FlagTimeout)
+                            goto FAIL;
+                        if (IsEnableSave)
+                            break;
+                    }
+                    FlagLabeling = false;
+                    General.cam2.ResetFlag();
+                    LPC1768.SendDataTarget("C");//LED7,8の赤
+                    Sleep(1000);
+
+                    ///////////////////////////////////////////////////
+                    //緑を点灯させる処理
+                    ///////////////////////////////////////////////////
+                    General.PowSupply(true);
+                    LPC1768.SendDataTarget("WP2601");//LED9,10の緑
+                    LPC1768.SendDataTarget("WP3401");//LED11,12の緑
+                    LPC1768.SendDataTarget("WP0001");//LED13,14の緑
+                    LPC1768.SendDataTarget("WP2301");//LED7,8の緑
+
+                    RedOn = false;
+                    GreenOn = true;//
+                    BlueOn = false;
+                    Sleep(1000);
+
+                    //ラベリング処理
+                    FlagLabeling = true;
+                    General.cam2.ResetFlag();
+                    General.cam2.FlagLabeling = true;
+                    labeling();
+                    tm = new GeneralTimer(5000);
+                    tm.Start();
+                    while (true)
+                    {
+                        if (tm.FlagTimeout)
+                            goto FAIL;
+                        if (IsEnableSave)
+                            break;
+                    }
+                    FlagLabeling = false;
+                    General.cam2.ResetFlag();
+                    LPC1768.SendDataTarget("C");//LED7,8の赤
+                    Sleep(1000);
+
+                    ///////////////////////////////////////////////////
+                    //青を点灯させる処理
+                    ///////////////////////////////////////////////////
+                    General.PowSupply(true);
+                    LPC1768.SendDataTarget("WP2401");//LED9,10の青
+                    LPC1768.SendDataTarget("WP2701");//LED11,12の青
+                    LPC1768.SendDataTarget("WP3501");//LED13,14の青
+                    LPC1768.SendDataTarget("WP2101");//LED7,8の青	
+
+                    RedOn = false;
+                    GreenOn = false;
+                    BlueOn = true;//
+                    Sleep(1000);
+
+                    //ラベリング処理
+                    FlagLabeling = true;
+                    General.cam2.ResetFlag();
+                    General.cam2.FlagLabeling = true;
+                    labeling();
+                    tm = new GeneralTimer(5000);
+                    tm.Start();
+                    while (true)
+                    {
+                        if (tm.FlagTimeout)
+                            goto FAIL;
+                        if (IsEnableSave)
+                            break;
+                    }
+                    FlagLabeling = false;
+                    General.cam2.ResetFlag();
+                    LPC1768.SendDataTarget("C");//LED7,8の赤
+
+
+                    //この時点で、座標、輝度がすべて表示されているはずなので保存する（カメラ設定も同時に保存する）
+                    SavePoint();
+                    SaveRedLum();
+                    SaveBlueLum();
+                    SaveGreenLum();
+                    SaveCameraCommonProp();
+
+                    Sleep(150);
+                    General.PlaySound(General.soundSuccess);
+                    return;
+
+                FAIL:
+                    FlagLabeling = false;
+                    General.cam2.ResetFlag();
+
+                    Sleep(150);
+                    General.PlaySound(General.soundFail);
+                });
+            }
+            finally
+            {
+                buttonSavePoint.Background = Brushes.Transparent;
+                RedOn = false;
+                GreenOn = false;
+                BlueOn = false;
+            }
 
         }
-
-
     }
 }
