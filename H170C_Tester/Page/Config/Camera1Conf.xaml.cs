@@ -76,6 +76,29 @@ namespace H170C_Tester
             State.VmCamera1Point.LED6 = "";
             State.VmCamera1Point.LED7 = "";
 
+            State.VmCamera1Point.LED1LumR = "";
+            State.VmCamera1Point.LED2LumR = "";
+            State.VmCamera1Point.LED3LumR = "";
+            State.VmCamera1Point.LED4LumR = "";
+            State.VmCamera1Point.LED5LumR = "";
+            State.VmCamera1Point.LED6LumR = "";
+            State.VmCamera1Point.LED7LumR = "";
+
+            State.VmCamera1Point.LED1LumG = "";
+            State.VmCamera1Point.LED2LumG = "";
+            State.VmCamera1Point.LED3LumG = "";
+            State.VmCamera1Point.LED4LumG = "";
+            State.VmCamera1Point.LED5LumG = "";
+            State.VmCamera1Point.LED6LumG = "";
+            State.VmCamera1Point.LED7LumG = "";
+
+            State.VmCamera1Point.LED1LumB = "";
+            State.VmCamera1Point.LED2LumB = "";
+            State.VmCamera1Point.LED3LumB = "";
+            State.VmCamera1Point.LED4LumB = "";
+            State.VmCamera1Point.LED5LumB = "";
+            State.VmCamera1Point.LED6LumB = "";
+            State.VmCamera1Point.LED7LumB = "";
         }
 
 
