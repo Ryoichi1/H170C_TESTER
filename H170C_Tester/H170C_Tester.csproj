@@ -281,6 +281,7 @@
   <ItemGroup>
     <Resource Include="Resources\Pic\nagasaki.jpg" />
     <Resource Include="Resources\Pic\moon.jpg" />
+    <Resource Include="Resources\Pic\casey.jpg" />
     <Content Include="Resources\Wav\VictoryLong.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -290,15 +291,6 @@
     <Resource Include="Resources\Pic\baby1.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Resources\Pic\baby2.JPG">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Pic\baby3.jpg" />
-    <Resource Include="Resources\Pic\chri1.jpg" />
-    <Resource Include="Resources\Pic\chri2.jpg" />
-    <Resource Include="Resources\Pic\wa_winter.jpg" />
-    <Resource Include="Resources\Pic\take.jpg" />
-    <Resource Include="Resources\Pic\night.jpg" />
     <Resource Include="Resources\Pic\snow.jpg" />
     <Content Include="Resources\Wav\Alarm.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
