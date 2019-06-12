@@ -27,27 +27,71 @@ namespace H170C_Tester
         private string _LED7;
         public string LED7 { get { return _LED7; } set { SetProperty(ref _LED7, value); } }
 
-        //LED輝度
-        private string _LED1Lum;
-        public string LED1Lum { get { return _LED1Lum; } set { SetProperty(ref _LED1Lum, value); } }
+        //LED輝度 赤
+        private string _LED1LumR;
+        public string LED1LumR { get { return _LED1LumR; } set { SetProperty(ref _LED1LumR, value); } }
 
-        private string _LED2Lum;
-        public string LED2Lum { get { return _LED2Lum; } set { SetProperty(ref _LED2Lum, value); } }
+        private string _LED2LumR;
+        public string LED2LumR { get { return _LED2LumR; } set { SetProperty(ref _LED2LumR, value); } }
 
-        private string _LED3Lum;
-        public string LED3Lum { get { return _LED3Lum; } set { SetProperty(ref _LED3Lum, value); } }
+        private string _LED3LumR;
+        public string LED3LumR { get { return _LED3LumR; } set { SetProperty(ref _LED3LumR, value); } }
 
-        private string _LED4Lum;
-        public string LED4Lum { get { return _LED4Lum; } set { SetProperty(ref _LED4Lum, value); } }
+        private string _LED4LumR;
+        public string LED4LumR { get { return _LED4LumR; } set { SetProperty(ref _LED4LumR, value); } }
 
-        private string _LED5Lum;
-        public string LED5Lum { get { return _LED5Lum; } set { SetProperty(ref _LED5Lum, value); } }
+        private string _LED5LumR;
+        public string LED5LumR { get { return _LED5LumR; } set { SetProperty(ref _LED5LumR, value); } }
 
-        private string _LED6Lum;
-        public string LED6Lum { get { return _LED6Lum; } set { SetProperty(ref _LED6Lum, value); } }
+        private string _LED6LumR;
+        public string LED6LumR { get { return _LED6LumR; } set { SetProperty(ref _LED6LumR, value); } }
 
-        private string _LED7Lum;
-        public string LED7Lum { get { return _LED7Lum; } set { SetProperty(ref _LED7Lum, value); } }
+        private string _LED7LumR;
+        public string LED7LumR { get { return _LED7LumR; } set { SetProperty(ref _LED7LumR, value); } }
+
+        //LED輝度 緑
+        private string _LED1LumG;
+        public string LED1LumG { get { return _LED1LumG; } set { SetProperty(ref _LED1LumG, value); } }
+
+        private string _LED2LumG;
+        public string LED2LumG { get { return _LED2LumG; } set { SetProperty(ref _LED2LumG, value); } }
+
+        private string _LED3LumG;
+        public string LED3LumG { get { return _LED3LumG; } set { SetProperty(ref _LED3LumG, value); } }
+
+        private string _LED4LumG;
+        public string LED4LumG { get { return _LED4LumG; } set { SetProperty(ref _LED4LumG, value); } }
+
+        private string _LED5LumG;
+        public string LED5LumG { get { return _LED5LumG; } set { SetProperty(ref _LED5LumG, value); } }
+
+        private string _LED6LumG;
+        public string LED6LumG { get { return _LED6LumG; } set { SetProperty(ref _LED6LumG, value); } }
+
+        private string _LED7LumG;
+        public string LED7LumG { get { return _LED7LumG; } set { SetProperty(ref _LED7LumG, value); } }
+
+        //LED輝度 青
+        private string _LED1LumB;
+        public string LED1LumB { get { return _LED1LumB; } set { SetProperty(ref _LED1LumB, value); } }
+
+        private string _LED2LumB;
+        public string LED2LumB { get { return _LED2LumB; } set { SetProperty(ref _LED2LumB, value); } }
+
+        private string _LED3LumB;
+        public string LED3LumB { get { return _LED3LumB; } set { SetProperty(ref _LED3LumB, value); } }
+
+        private string _LED4LumB;
+        public string LED4LumB { get { return _LED4LumB; } set { SetProperty(ref _LED4LumB, value); } }
+
+        private string _LED5LumB;
+        public string LED5LumB { get { return _LED5LumB; } set { SetProperty(ref _LED5LumB, value); } }
+
+        private string _LED6LumB;
+        public string LED6LumB { get { return _LED6LumB; } set { SetProperty(ref _LED6LumB, value); } }
+
+        private string _LED7LumB;
+        public string LED7LumB { get { return _LED7LumB; } set { SetProperty(ref _LED7LumB, value); } }
 
     }
 }

@@ -151,6 +151,7 @@
     <Compile Include="Utility\Camera.cs" />
     <Compile Include="Utility\ColorHSV.cs" />
     <Compile Include="Utility\FlashDevelopmentToolkit.cs" />
+    <Compile Include="Utility\GeneralTimer.cs" />
     <Compile Include="Utility\IAMVideoProcAmp.cs" />
     <Compile Include="Utility\LPC1768.cs" />
     <Compile Include="Utility\VideoCaptureDevice.cs" />
