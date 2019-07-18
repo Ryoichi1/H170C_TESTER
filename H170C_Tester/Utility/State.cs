@@ -186,8 +186,8 @@ namespace H170C_Tester
             General.cam1.BinLevel = camCommonProp.BinLevel;
 
             General.cam1.Opening = camCommonProp.Opening;
-            General.cam1.openCnt = camCommonProp.OpenCnt;
-            General.cam1.closeCnt = camCommonProp.CloseCnt;
+            General.cam1.OpenCnt = camCommonProp.OpenCnt;
+            General.cam1.CloseCnt = camCommonProp.CloseCnt;
 
             //TODO: 座標指定
             //State.VmCamera1Point.LED1 = cam1Prop.LED1;
@@ -215,8 +215,8 @@ namespace H170C_Tester
             General.cam2.BinLevel = camCommonProp.BinLevel;
 
             General.cam2.Opening = camCommonProp.Opening;
-            General.cam2.openCnt = camCommonProp.OpenCnt;
-            General.cam2.closeCnt = camCommonProp.CloseCnt;
+            General.cam2.OpenCnt = camCommonProp.OpenCnt;
+            General.cam2.CloseCnt = camCommonProp.CloseCnt;
 
             //TODO: 座標指定
             //State.VmCamera2Point.LED8 = cam2Prop.LED8;

@@ -16,6 +16,7 @@ namespace H170C_Tester
         public string LED6 { get; set; }
         public string LED7 { get; set; }
 
+        //輝度 赤
         public double LumRedLed1 { get; set; }
         public double LumRedLed2 { get; set; }
         public double LumRedLed3 { get; set; }
@@ -24,6 +25,7 @@ namespace H170C_Tester
         public double LumRedLed6 { get; set; }
         public double LumRedLed7 { get; set; }
 
+        //輝度 青
         public double LumBlueLed1 { get; set; }
         public double LumBlueLed2 { get; set; }
         public double LumBlueLed3 { get; set; }
@@ -32,6 +34,7 @@ namespace H170C_Tester
         public double LumBlueLed6 { get; set; }
         public double LumBlueLed7 { get; set; }
 
+        //輝度 緑
         public double LumGreenLed1 { get; set; }
         public double LumGreenLed2 { get; set; }
         public double LumGreenLed3 { get; set; }

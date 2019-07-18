@@ -29,8 +29,6 @@ namespace H170C_Tester
             CanvasComm.DataContext = State.VmComm;
             CanvasImg1.DataContext = General.cam1;
             CanvasImg2.DataContext = General.cam2;
-            labelCamera1.DataContext = General.cam1;
-            labelCamera2.DataContext = General.cam2;
 
             (FindResource("Blink") as Storyboard).Begin();
 

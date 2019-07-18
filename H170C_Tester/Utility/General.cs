@@ -530,18 +530,17 @@ namespace H170C_Tester
             bool StopCAMERA1 = false;
             Task.Run(() =>
             {
-                cam1 = new Camera(State.cam1Prop.CamNumber, Constants.filePath_Cam1CalFilePath);
+                cam1 = new Camera(State.cam1Prop.CamNumber, Constants.filePath_Cam1CalFilePath, 640, 360);
                 while (true)
                 {
                     if (Flags.StopInit周辺機器)
-                    {
                         break;
-                    }
 
                     if (!Flags.State1768) continue;//他のアイテムの試験機が接続されていたらカメラのイニシャライズは行わない
 
                     cam1.InitCamera();
-                    if (General.cam1.CamState) break;
+                    if (Flags.StateCam1 = cam1.CamState)
+                        break;
 
                     Thread.Sleep(500);
                 }
@@ -552,7 +551,7 @@ namespace H170C_Tester
             bool StopCAMERA2 = false;
             Task.Run(() =>
             {
-                cam2 = new Camera(State.cam2Prop.CamNumber, Constants.filePath_Cam2CalFilePath);
+                cam2 = new Camera(State.cam2Prop.CamNumber, Constants.filePath_Cam2CalFilePath, 640, 360);
                 while (true)
                 {
                     if (Flags.StopInit周辺機器)
@@ -563,7 +562,8 @@ namespace H170C_Tester
                     if (!Flags.State1768) continue;//他のアイテムの試験機が接続されていたらカメラのイニシャライズは行わない
 
                     cam2.InitCamera();
-                    if (General.cam2.CamState) break;
+                    if (Flags.StateCam2 = cam2.CamState)
+                        break;
 
                     Thread.Sleep(500);
                 }

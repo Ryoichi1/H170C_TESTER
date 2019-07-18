@@ -282,8 +282,8 @@
             <TextBlock TextWrapping="Wrap" Text="Status" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" Width="60" Canvas.Left="7" Canvas.Top="4"/>
             <StackPanel x:Name="stackPanel機器ステータス" Height="20" Canvas.Top="31" Width="178" Orientation="Horizontal" Canvas.Left="78">
                 <Label x:Name="labelLpc1768" Content="LPC1768" Background="{Binding Color1768}" BorderThickness="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="56"/>
-                <Label x:Name="labelCamera1" Content="カメラ1"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding ColorCAMERA}" BorderThickness="1" Width="56" />
-                <Label x:Name="labelCamera2" Content="カメラ2"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding ColorCAMERA}" BorderThickness="1" Width="56" />
+                <Label x:Name="labelCamera1" Content="カメラ1"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding ColorCam1}" BorderThickness="1" Width="56" />
+                <Label x:Name="labelCamera2" Content="カメラ2"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding ColorCam2}" BorderThickness="1" Width="56" />
             </StackPanel>
             <TextBlock x:Name="textBlock2_Copy5" TextWrapping="Wrap" Text="周辺機器" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="68" RenderTransformOrigin="0.5,0.5" Canvas.Top="30" Canvas.Left="7">
                 <TextBlock.RenderTransform>
@@ -518,7 +518,7 @@
             <Label x:Name="labelCan1" Content="CAN1 CN271"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding ColorCan1}" BorderThickness="1" Width="87" Height="20" Canvas.Left="283" Canvas.Top="8" FontSize="12" Padding="0" />
             <Label x:Name="labelCan2" Content="CAN2 CN272"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Background="{Binding ColorCan2}" BorderThickness="1" Width="86" Height="20" Canvas.Left="370" Canvas.Top="8" Padding="0" FontSize="12" />
         </Canvas>
-        <Controls:ProgressRing x:Name="RingWait" Canvas.Left="112" Canvas.Top="146" Height="120" Width="120" IsActive="{Binding IsActiveRing}">
+        <Controls:ProgressRing x:Name="RingWait" Canvas.Left="160" Canvas.Top="194" Height="60" Width="60" IsActive="{Binding IsActiveRing}">
             <!--<Controls:ProgressRing.Effect>
                 <DropShadowEffect Color="#FFF7F9F9" Direction="0" ShadowDepth="0" BlurRadius="10"/>
             </Controls:ProgressRing.Effect>-->

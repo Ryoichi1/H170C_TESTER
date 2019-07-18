@@ -118,8 +118,8 @@ namespace H170C_Tester
             State.camCommonProp.BinLevel = General.cam2.BinLevel;
 
             State.camCommonProp.Opening = General.cam2.Opening;
-            State.camCommonProp.OpenCnt = General.cam2.openCnt;
-            State.camCommonProp.CloseCnt = General.cam2.closeCnt;
+            State.camCommonProp.OpenCnt = General.cam2.OpenCnt;
+            State.camCommonProp.CloseCnt = General.cam2.CloseCnt;
 
         }
         private void SaveRedLum()

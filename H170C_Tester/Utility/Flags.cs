@@ -1,4 +1,5 @@
 ﻿using System.Windows.Media;
+using static H170C_Tester.General;
 
 namespace H170C_Tester
 {
@@ -25,7 +26,7 @@ namespace H170C_Tester
 
 
         public static bool PressOpenCheckBeforeTest { get; set; }
-
+        public static bool EnableStartCheck { get; set; }
 
         private static SolidColorBrush RetryPanelBrush = new SolidColorBrush();
         private static SolidColorBrush StatePanelOkBrush = new SolidColorBrush();
@@ -55,6 +56,27 @@ namespace H170C_Tester
             }
         }
 
+        private static bool _StateCam1;
+        public static bool StateCam1
+        {
+            get { return _StateCam1; }
+            set
+            {
+                _StateCam1 = value;
+                State.VmTestStatus.ColorCam1 = value ? OnBrush : NgBrush;
+            }
+        }
+
+        private static bool _StateCam2;
+        public static bool StateCam2
+        {
+            get { return _StateCam2; }
+            set
+            {
+                _StateCam2 = value;
+                State.VmTestStatus.ColorCam2 = value ? OnBrush : NgBrush;
+            }
+        }
 
 
         private static bool _Retry;

@@ -279,6 +279,19 @@ namespace H170C_Tester
             set { SetProperty(ref _Color1768, value); }
         }
 
+        private Brush _ColorCam1 = General.NgBrush;
+        public Brush ColorCam1
+        {
+            get { return _ColorCam1; }
+            set { SetProperty(ref _ColorCam1, value); }
+        }
+
+        private Brush _ColorCam2 = General.NgBrush;
+        public Brush ColorCam2
+        {
+            get { return _ColorCam2; }
+            set { SetProperty(ref _ColorCam2, value); }
+        }
 
 
     }

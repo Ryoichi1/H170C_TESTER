@@ -286,17 +286,9 @@
     <Content Include="Resources\Wav\VictoryLong.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\Pic\baby5.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Pic\baby1.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Resources\Pic\snow.jpg" />
     <Content Include="Resources\Wav\Alarm.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Resources\Pic\baby7.jpg" />
     <Content Include="Resources\Wav\Success.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -27,11 +27,11 @@ namespace H170C_Tester
         public TestCommand()
         {
             effect判定表示PASS = new DropShadowEffect();
-            effect判定表示PASS.Color = Colors.Aqua;
+            effect判定表示PASS.Color = Colors.GreenYellow;
             effect判定表示PASS.Direction = 0;
             effect判定表示PASS.ShadowDepth = 0;
             effect判定表示PASS.Opacity = 1.0;
-            effect判定表示PASS.BlurRadius = 80;
+            effect判定表示PASS.BlurRadius = 20;
 
             effect判定表示FAIL = new DropShadowEffect();
             effect判定表示FAIL.Color = Colors.HotPink; ;
@@ -48,6 +48,7 @@ namespace H170C_Tester
             {
                 await Task.Run(() =>
                 {
+                    while (!Flags.EnableStartCheck) ;
                     RETRY:
                     while (true)
                     {
@@ -186,7 +187,7 @@ namespace H170C_Tester
 
                 foreach (var d in テスト項目最新.Select((s, i) => new { i, s }))
                 {
-                    Retry:
+                Retry:
                     State.VmTestStatus.Spec = "規格値 : ---";
                     State.VmTestStatus.MeasValue = "計測値 : ---";
                     Flags.AddDecision = true;
@@ -277,8 +278,8 @@ namespace H170C_Tester
                             General.ResetIo();
                             State.VmTestStatus.IsActiveRing = false;//リング表示してる可能性があるので念のため消す処理
 
-                            await General.cam1.Stop();
-                            await General.cam2.Stop();
+                            //await General.cam1.Stop();
+                            //await General.cam2.Stop();
 
 
                             if (Flags.ClickStopButton) goto FAIL;
@@ -365,7 +366,7 @@ namespace H170C_Tester
 
                 FlagTestTime = false;
 
-                State.VmTestStatus.Colorlabel判定 = Brushes.AntiqueWhite;
+                State.VmTestStatus.Colorlabel判定 = Brushes.AliceBlue;
                 State.VmTestStatus.Decision = "PASS";
                 State.VmTestStatus.ColorDecision = effect判定表示PASS;
 
@@ -390,8 +391,8 @@ namespace H170C_Tester
 
                 return;
 
-                //不合格時の処理
-                FAIL:
+            //不合格時の処理
+            FAIL:
 
                 //強制停止ボタンの設定
                 await General.ShowStopButton(false);
@@ -399,7 +400,7 @@ namespace H170C_Tester
 
                 General.ResetIo();
                 await Task.Delay(500);
-                FAIL_DATA_SAVE:
+            FAIL_DATA_SAVE:
 
 
                 FlagTestTime = false;
