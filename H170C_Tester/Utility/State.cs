@@ -70,7 +70,7 @@ namespace H170C_Tester
             new TestSpecs(501, "セクション2 緑色チェック", true),
             new TestSpecs(502, "セクション2 青色チェック", true),
 
-            new TestSpecs(600, "製品ソフト書き込み", false),
+            //new TestSpecs(600, "製品ソフト書き込み", false),
         };
 
         //個別設定のロード
@@ -189,14 +189,6 @@ namespace H170C_Tester
             General.cam1.OpenCnt = camCommonProp.OpenCnt;
             General.cam1.CloseCnt = camCommonProp.CloseCnt;
 
-            //TODO: 座標指定
-            //State.VmCamera1Point.LED1 = cam1Prop.LED1;
-            //State.VmCamera1Point.LED2 = cam1Prop.LED2;
-            //State.VmCamera1Point.LED3 = cam1Prop.LED3;
-            //State.VmCamera1Point.LED4 = cam1Prop.LED4;
-            //State.VmCamera1Point.LED5 = cam1Prop.LED5;
-            //State.VmCamera1Point.LED6 = cam1Prop.LED6;
-            //State.VmCamera1Point.LED7 = cam1Prop.LED7;
         }
 
         public static void SetCam2Prop()
@@ -217,15 +209,6 @@ namespace H170C_Tester
             General.cam2.Opening = camCommonProp.Opening;
             General.cam2.OpenCnt = camCommonProp.OpenCnt;
             General.cam2.CloseCnt = camCommonProp.CloseCnt;
-
-            //TODO: 座標指定
-            //State.VmCamera2Point.LED8 = cam2Prop.LED8;
-            //State.VmCamera2Point.LED9 = cam2Prop.LED9;
-            //State.VmCamera2Point.LED10 = cam2Prop.LED10;
-            //State.VmCamera2Point.LED11 = cam2Prop.LED11;
-            //State.VmCamera2Point.LED12 = cam2Prop.LED12;
-            //State.VmCamera2Point.LED13 = cam2Prop.LED13;
-            //State.VmCamera2Point.LED14 = cam2Prop.LED14;
 
         }
 

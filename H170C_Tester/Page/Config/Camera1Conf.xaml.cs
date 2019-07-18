@@ -64,7 +64,6 @@ namespace H170C_Tester
                 return;
             await General.cam1.Stop();
             State.SetCam1Prop();
-            await Task.Delay(500);
             Flags.EnableStartCheck = true;
         }
 
@@ -516,6 +515,7 @@ namespace H170C_Tester
                 buttonGreen.IsEnabled = false;
                 buttonBlue.IsEnabled = false;
                 buttonLabeling.IsEnabled = false;
+                buttonHue.IsEnabled = false;
 
                 buttonSavePoint.Background = Brushes.DodgerBlue;
                 resetView();
@@ -695,6 +695,7 @@ namespace H170C_Tester
                 buttonGreen.IsEnabled = true;
                 buttonBlue.IsEnabled = true;
                 buttonLabeling.IsEnabled = true;
+                buttonHue.IsEnabled = true;
                 IsBusy = false;
                 RingCal.IsActive = false;
             }

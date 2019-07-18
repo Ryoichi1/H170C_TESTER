@@ -107,7 +107,6 @@ namespace H170C_Tester
             int X = 0;
             int Y = 0;
             double refLum = 0;
-            double errLum = 25;
 
             try
             {
@@ -281,7 +280,7 @@ namespace H170C_Tester
                         {
                             area = match.Value.Area;
                             //面積の計算
-                            l.resultArea = area >= refLum * (1 - (errLum / 100.0)) && area <= refLum * (1 + (errLum / 100.0));
+                            l.resultArea = area >= refLum * (1 - (State.TestSpec.ErrLum / 100.0)) && area <= refLum * (1 + (State.TestSpec.ErrLum / 100.0));
                         }
 
 
@@ -439,7 +438,6 @@ namespace H170C_Tester
             int X = 0;
             int Y = 0;
             double refLum = 0;
-            double errLum = 25;
 
             try
             {
@@ -615,7 +613,7 @@ namespace H170C_Tester
                         {
                             area = match.Value.Area;
                             //面積の計算
-                            l.resultArea = area >= refLum * (1 - (errLum / 100.0)) && area <= refLum * (1 + (errLum / 100.0));
+                            l.resultArea = area >= refLum * (1 - (State.TestSpec.ErrLum / 100.0)) && area <= refLum * (1 + (State.TestSpec.ErrLum / 100.0));
                         }
 
 
@@ -1048,63 +1046,7 @@ namespace H170C_Tester
                         State.VmTestStatus.TestLog += "---FAIL\r\n";
                     }
 
-
-                    //if (!Result)
-                    //{
-                    //    General.cam1.MakeNgFrame = (img) =>
-                    //    {
-                    //        //リストからNGの座標を抽出する
-                    //        var NgList = ListLedSpec1.Where(l => !l.resultHue).ToList();
-                    //        NgList.ForEach(n =>
-                    //        {
-                    //            int x = 0;
-                    //            int y = 0;
-                    //            switch (n.name)
-                    //            {
-                    //                case NAME1.LED1:
-                    //                    x = Int32.Parse(State.cam1Prop.LED1.Split('/').ToArray()[0]);
-                    //                    y = Int32.Parse(State.cam1Prop.LED1.Split('/').ToArray()[1]);
-                    //                    break;
-
-                    //                case NAME1.LED2:
-                    //                    x = Int32.Parse(State.cam1Prop.LED2.Split('/').ToArray()[0]);
-                    //                    y = Int32.Parse(State.cam1Prop.LED2.Split('/').ToArray()[1]);
-                    //                    break;
-
-                    //                case NAME1.LED3:
-                    //                    x = Int32.Parse(State.cam1Prop.LED3.Split('/').ToArray()[0]);
-                    //                    y = Int32.Parse(State.cam1Prop.LED3.Split('/').ToArray()[1]);
-                    //                    break;
-
-                    //                case NAME1.LED4:
-                    //                    x = Int32.Parse(State.cam1Prop.LED4.Split('/').ToArray()[0]);
-                    //                    y = Int32.Parse(State.cam1Prop.LED4.Split('/').ToArray()[1]);
-                    //                    break;
-
-                    //                case NAME1.LED5:
-                    //                    x = Int32.Parse(State.cam1Prop.LED5.Split('/').ToArray()[0]);
-                    //                    y = Int32.Parse(State.cam1Prop.LED5.Split('/').ToArray()[1]);
-                    //                    break;
-
-                    //                case NAME1.LED6:
-                    //                    x = Int32.Parse(State.cam1Prop.LED6.Split('/').ToArray()[0]);
-                    //                    y = Int32.Parse(State.cam1Prop.LED6.Split('/').ToArray()[1]);
-                    //                    break;
-
-                    //                case NAME1.LED7:
-                    //                    x = Int32.Parse(State.cam1Prop.LED7.Split('/').ToArray()[0]);
-                    //                    y = Int32.Parse(State.cam1Prop.LED7.Split('/').ToArray()[1]);
-                    //                    break;
-                    //            }
-
-                    //            var length = 30;
-                    //            img.Rectangle(new CvRect(x - (length / 2), y - (length / 2), length, length), CvColor.DodgerBlue, 4);
-                    //        });
-                    //    };
-                    //    General.cam1.FlagNgFrame = true;
-                    //    State.VmTestStatus.MeasValue = "計測値 : ---";
-                    //}
-
+                
                 }
             });
 
@@ -1367,6 +1309,259 @@ namespace H170C_Tester
         }
 
 
+        public static bool CheckColor2ForDebug(COLOR col)
+        {
+            var side = 50;
+            var X = 0;
+            var Y = 0;
+            var refHueMax = 0;
+            var refHueMin = 0;
+
+            var Result = false;
+            InitList();
+
+            switch (col)
+            {
+                case COLOR.RED:
+                    refHueMax = State.TestSpec.RedHueMax;
+                    refHueMin = State.TestSpec.RedHueMin;
+                    break;
+
+                case COLOR.GREEN:
+                    refHueMax = State.TestSpec.GreenHueMax;
+                    refHueMin = State.TestSpec.GreenHueMin;
+                    break;
+
+                case COLOR.BLUE:
+                    refHueMax = State.TestSpec.BlueHueMax;
+                    refHueMin = State.TestSpec.BlueHueMin;
+                    break;
+            }
+
+
+            Thread.Sleep(500);
+
+            //cam1の画像を取得する処理
+            General.cam2.FlagTestPic = true;
+            while (General.cam2.FlagTestPic) ;
+            source = General.cam2.imageForTest;
+            //source.SaveImage(@"C:\Users\TSDP00059\Desktop\src.jpg");
+            using (IplImage hsv = new IplImage(640, 360, BitDepth.U8, 3)) // グレースケール画像格納用の変数
+            {
+                try
+                {
+                    //RGBからHSVに変換
+                    Cv.CvtColor(source, hsv, ColorConversion.BgrToHsv);
+                    OpenCvSharp.CPlusPlus.Mat mat = new OpenCvSharp.CPlusPlus.Mat(hsv, true);
+
+                    ListLedSpec2.ForEach(l =>
+                    {
+
+                        switch (l.name)
+                        {
+                            case NAME2.LED8:
+                                X = Int32.Parse(State.cam2Prop.LED8.Split('/').ToArray()[0]);
+                                Y = Int32.Parse(State.cam2Prop.LED8.Split('/').ToArray()[1]);
+                                break;
+
+                            case NAME2.LED9:
+                                X = Int32.Parse(State.cam2Prop.LED9.Split('/').ToArray()[0]);
+                                Y = Int32.Parse(State.cam2Prop.LED9.Split('/').ToArray()[1]);
+                                break;
+
+                            case NAME2.LED10:
+                                X = Int32.Parse(State.cam2Prop.LED10.Split('/').ToArray()[0]);
+                                Y = Int32.Parse(State.cam2Prop.LED10.Split('/').ToArray()[1]);
+                                break;
+
+                            case NAME2.LED11:
+                                X = Int32.Parse(State.cam2Prop.LED11.Split('/').ToArray()[0]);
+                                Y = Int32.Parse(State.cam2Prop.LED11.Split('/').ToArray()[1]);
+                                break;
+
+                            case NAME2.LED12:
+                                X = Int32.Parse(State.cam2Prop.LED12.Split('/').ToArray()[0]);
+                                Y = Int32.Parse(State.cam2Prop.LED12.Split('/').ToArray()[1]);
+                                break;
+
+                            case NAME2.LED13:
+                                X = Int32.Parse(State.cam2Prop.LED13.Split('/').ToArray()[0]);
+                                Y = Int32.Parse(State.cam2Prop.LED13.Split('/').ToArray()[1]);
+                                break;
+
+                            case NAME2.LED14:
+                                X = Int32.Parse(State.cam2Prop.LED14.Split('/').ToArray()[0]);
+                                Y = Int32.Parse(State.cam2Prop.LED14.Split('/').ToArray()[1]);
+                                break;
+                        }
+
+                        var ListH = new List<int>();
+                        var ListS = new List<int>();
+                        var ListV = new List<int>();
+
+                        foreach (var i in Enumerable.Range(0, side))
+                        {
+                            foreach (var j in Enumerable.Range(0, side))
+                            {
+                                var re = mat.At<OpenCvSharp.CPlusPlus.Vec3b>(Y - (side / 2) + i, X - (side / 2) + j);
+                                if (re[0] != 0 && re[1] > 200 && re[2] > 200)
+                                {
+                                    ListH.Add(re[0]);
+                                    ListS.Add(re[1]);
+                                    ListV.Add(re[2]);
+                                }
+
+                            }
+                        }
+                        var Hue = (ListH.Count != 0) ? ListH.Average() : 0;
+                        var Sat = (ListS.Count != 0) ? ListS.Average() : 0;
+                        var Val = (ListV.Count != 0) ? ListV.Average() : 0;
+
+                        l.resultHue = (Hue >= refHueMin) && (Hue <= refHueMax);
+
+                        //ビューモデルの更新
+                        string hsvValue = Hue.ToString("F0");
+                        ColorHSV CurrentHsv = new ColorHSV((float)Hue / 180, (float)Sat / 255, (float)Val / 255); //正規化
+                        var rgb = ColorConv.HSV2RGB(CurrentHsv);
+                        var color = new SolidColorBrush(Color.FromRgb(rgb.R, rgb.G, rgb.B));
+                        color.Opacity = 0.5;
+                        color.Freeze();//これ重要！！！  
+
+                        switch (l.name)
+                        {
+                            case NAME2.LED8:
+                                switch (col)
+                                {
+                                    case COLOR.RED:
+                                        State.VmCamera2Point.HueLed8R = hsvValue;
+                                        State.VmCamera2Point.ColLed8R = color;
+                                        break;
+                                    case COLOR.GREEN:
+                                        State.VmCamera2Point.HueLed8G = hsvValue;
+                                        State.VmCamera2Point.ColLed8G = color;
+                                        break;
+                                    case COLOR.BLUE:
+                                        State.VmCamera2Point.HueLed8B = hsvValue;
+                                        State.VmCamera2Point.ColLed8B = color;
+                                        break;
+                                }
+                                break;
+                            case NAME2.LED9:
+                                switch (col)
+                                {
+                                    case COLOR.RED:
+                                        State.VmCamera2Point.HueLed9R = hsvValue;
+                                        State.VmCamera2Point.ColLed9R = color;
+                                        break;
+                                    case COLOR.GREEN:
+                                        State.VmCamera2Point.HueLed9G = hsvValue;
+                                        State.VmCamera2Point.ColLed9G = color;
+                                        break;
+                                    case COLOR.BLUE:
+                                        State.VmCamera2Point.HueLed9B = hsvValue;
+                                        State.VmCamera2Point.ColLed9B = color;
+                                        break;
+                                }
+                                break;
+                            case NAME2.LED10:
+                                switch (col)
+                                {
+                                    case COLOR.RED:
+                                        State.VmCamera2Point.HueLed10R = hsvValue;
+                                        State.VmCamera2Point.ColLed10R = color;
+                                        break;
+                                    case COLOR.GREEN:
+                                        State.VmCamera2Point.HueLed10G = hsvValue;
+                                        State.VmCamera2Point.ColLed10G = color;
+                                        break;
+                                    case COLOR.BLUE:
+                                        State.VmCamera2Point.HueLed10B = hsvValue;
+                                        State.VmCamera2Point.ColLed10B = color;
+                                        break;
+                                }
+                                break;
+                            case NAME2.LED11:
+                                switch (col)
+                                {
+                                    case COLOR.RED:
+                                        State.VmCamera2Point.HueLed11R = hsvValue;
+                                        State.VmCamera2Point.ColLed11R = color;
+                                        break;
+                                    case COLOR.GREEN:
+                                        State.VmCamera2Point.HueLed11G = hsvValue;
+                                        State.VmCamera2Point.ColLed11G = color;
+                                        break;
+                                    case COLOR.BLUE:
+                                        State.VmCamera2Point.HueLed11B = hsvValue;
+                                        State.VmCamera2Point.ColLed11B = color;
+                                        break;
+                                }
+                                break;
+                            case NAME2.LED12:
+                                switch (col)
+                                {
+                                    case COLOR.RED:
+                                        State.VmCamera2Point.HueLed12R = hsvValue;
+                                        State.VmCamera2Point.ColLed12R = color;
+                                        break;
+                                    case COLOR.GREEN:
+                                        State.VmCamera2Point.HueLed12G = hsvValue;
+                                        State.VmCamera2Point.ColLed12G = color;
+                                        break;
+                                    case COLOR.BLUE:
+                                        State.VmCamera2Point.HueLed12B = hsvValue;
+                                        State.VmCamera2Point.ColLed12B = color;
+                                        break;
+                                }
+                                break;
+                            case NAME2.LED13:
+                                switch (col)
+                                {
+                                    case COLOR.RED:
+                                        State.VmCamera2Point.HueLed13R = hsvValue;
+                                        State.VmCamera2Point.ColLed13R = color;
+                                        break;
+                                    case COLOR.GREEN:
+                                        State.VmCamera2Point.HueLed13G = hsvValue;
+                                        State.VmCamera2Point.ColLed13G = color;
+                                        break;
+                                    case COLOR.BLUE:
+                                        State.VmCamera2Point.HueLed13B = hsvValue;
+                                        State.VmCamera2Point.ColLed13B = color;
+                                        break;
+                                }
+                                break;
+                            case NAME2.LED14:
+                                switch (col)
+                                {
+                                    case COLOR.RED:
+                                        State.VmCamera2Point.HueLed14R = hsvValue;
+                                        State.VmCamera2Point.ColLed14R = color;
+                                        break;
+                                    case COLOR.GREEN:
+                                        State.VmCamera2Point.HueLed14G = hsvValue;
+                                        State.VmCamera2Point.ColLed14G = color;
+                                        break;
+                                    case COLOR.BLUE:
+                                        State.VmCamera2Point.HueLed14B = hsvValue;
+                                        State.VmCamera2Point.ColLed14B = color;
+                                        break;
+                                }
+                                break;
+
+                        }
+
+
+                    });
+                }
+                catch
+                {
+                    return Result = false;
+                }
+            }
+
+            return Result = ListLedSpec2.All(l => l.resultHue);
+        }
 
 
 
@@ -1648,63 +1843,7 @@ namespace H170C_Tester
                         State.VmTestStatus.TestLog += "---FAIL\r\n";
                     }
 
-
-                    //if (!Result)
-                    //{
-                    //    General.cam2.MakeNgFrame = (img) =>
-                    //    {
-                    //        //リストからNGの座標を抽出する
-                    //        var NgList = ListLedSpec2.Where(l => !l.resultHue).ToList();
-                    //        NgList.ForEach(n =>
-                    //        {
-                    //            int x = 0;
-                    //            int y = 0;
-                    //            switch (n.name)
-                    //            {
-                    //                case NAME2.LED8:
-                    //                    x = Int32.Parse(State.cam2Prop.LED8.Split('/').ToArray()[0]);
-                    //                    y = Int32.Parse(State.cam2Prop.LED8.Split('/').ToArray()[1]);
-                    //                    break;
-
-                    //                case NAME2.LED9:
-                    //                    x = Int32.Parse(State.cam2Prop.LED9.Split('/').ToArray()[0]);
-                    //                    y = Int32.Parse(State.cam2Prop.LED9.Split('/').ToArray()[1]);
-                    //                    break;
-
-                    //                case NAME2.LED10:
-                    //                    x = Int32.Parse(State.cam2Prop.LED10.Split('/').ToArray()[0]);
-                    //                    y = Int32.Parse(State.cam2Prop.LED10.Split('/').ToArray()[1]);
-                    //                    break;
-
-                    //                case NAME2.LED11:
-                    //                    x = Int32.Parse(State.cam2Prop.LED11.Split('/').ToArray()[0]);
-                    //                    y = Int32.Parse(State.cam2Prop.LED11.Split('/').ToArray()[1]);
-                    //                    break;
-
-                    //                case NAME2.LED12:
-                    //                    x = Int32.Parse(State.cam2Prop.LED12.Split('/').ToArray()[0]);
-                    //                    y = Int32.Parse(State.cam2Prop.LED12.Split('/').ToArray()[1]);
-                    //                    break;
-
-                    //                case NAME2.LED13:
-                    //                    x = Int32.Parse(State.cam2Prop.LED13.Split('/').ToArray()[0]);
-                    //                    y = Int32.Parse(State.cam2Prop.LED13.Split('/').ToArray()[1]);
-                    //                    break;
-
-                    //                case NAME2.LED14:
-                    //                    x = Int32.Parse(State.cam2Prop.LED14.Split('/').ToArray()[0]);
-                    //                    y = Int32.Parse(State.cam2Prop.LED14.Split('/').ToArray()[1]);
-                    //                    break;
-                    //            }
-
-                    //            var length = 30;
-                    //            img.Rectangle(new CvRect(x - (length / 2), y - (length / 2), length, length), CvColor.DodgerBlue, 4);
-                    //        });
-                    //    };
-                    //    General.cam2.FlagNgFrame = true;
-                    //    State.VmTestStatus.MeasValue = "計測値 : ---";
-                    //}
-
+             
                 }
             });
 

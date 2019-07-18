@@ -7,13 +7,13 @@ namespace H170C_Tester
     /// <summary>
     /// Interaction logic for BasicPage1.xaml
     /// </summary>
-    public partial class Mente
+    public partial class Mainte
     {
         private SolidColorBrush ButtonOnBrush = new SolidColorBrush();
         private SolidColorBrush ButtonOffBrush = new SolidColorBrush();
         private const double ButtonOpacity = 0.4;
 
-        public Mente()
+        public Mainte()
         {
             InitializeComponent();
             CanvasCommLpc1768.DataContext = State.VmComm;
@@ -27,6 +27,15 @@ namespace H170C_Tester
 
         }
 
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Flags.EnableStartCheck = false;
+            State.VmComm.LPC1768_RX = "";
+            State.VmComm.LPC1768_TX = "";
+            State.VmComm.TARGET_RX = "";
+            State.VmComm.TARGET_TX = "";
+        }
+
         private void Page_Unloaded(object sender, RoutedEventArgs e)
         {
             buttonPow.Background = Brushes.Transparent;
@@ -36,7 +45,7 @@ namespace H170C_Tester
             {
                 General.PowSupply(false);
             });
-
+            Flags.EnableStartCheck = true;
         }
 
 
@@ -59,14 +68,6 @@ namespace H170C_Tester
 
 
 
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            State.VmComm.LPC1768_RX = "";
-            State.VmComm.LPC1768_TX = "";
-            State.VmComm.TARGET_RX = "";
-            State.VmComm.TARGET_TX = "";
-        }
 
 
         private void buttonStamp_Click(object sender, RoutedEventArgs e)

@@ -261,7 +261,7 @@
 
 
 
-        <Canvas x:Name="CanvasStatus" Height="59" Canvas.Left="386" Canvas.Top="65" Width="263">
+        <Canvas x:Name="CanvasStatus" Height="59" Canvas.Left="386" Canvas.Top="75" Width="263">
             <Canvas.Resources>
                 <Style TargetType="{x:Type Label}">
                     <Setter Property="FontSize" Value="11"/>
@@ -300,36 +300,14 @@
                     <DropShadowEffect Color="#FF09A0F7" Direction="0" ShadowDepth="0" BlurRadius="20"/>
                 </Label.Effect>
             </Label>
-            <TextBlock x:Name="textBlock2_Copy11" TextWrapping="Wrap" Text="合格" FontSize="16" Foreground="#FF0DB2FF" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="35" RenderTransformOrigin="0.5,0.5" Canvas.Top="3" Canvas.Left="80">
-                <TextBlock.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </TextBlock.RenderTransform>
-            </TextBlock>
-            <Label x:Name="labelStateRetry_Copy" Content="{Binding OkCount}" Height="24" Canvas.Left="116" Canvas.Top="1" Width="40" VerticalContentAlignment="Center" BorderThickness="1" BorderBrush="{x:Null}" FontSize="16"/>
-            <TextBlock x:Name="textBlock2_Copy12" TextWrapping="Wrap" Text="不合格" FontSize="16" Foreground="#FFBF08AF" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="51" RenderTransformOrigin="0.5,0.5" Canvas.Top="3" Canvas.Left="162">
-                <TextBlock.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </TextBlock.RenderTransform>
-            </TextBlock>
-            <Label x:Name="labelStateRetry_Copy1" Content="{Binding NgCount}" Height="24" Canvas.Left="215" Canvas.Top="1" Width="40" VerticalContentAlignment="Center" BorderThickness="1" BorderBrush="{x:Null}" FontSize="16"/>
 
         </Canvas>
-        <Label x:Name="labelMessage" Content="{Binding Message, Mode=TwoWay, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="58" VerticalAlignment="Center" Width="1326" Canvas.Left="7" Canvas.Top="2" FontSize="38" Foreground="White" VerticalContentAlignment="Center">
+        <Label x:Name="labelMessage" Content="{Binding Message, Mode=TwoWay, NotifyOnTargetUpdated=True, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="67" VerticalAlignment="Center" Width="1326" Canvas.Left="7" Canvas.Top="2" FontSize="48" Foreground="White" VerticalContentAlignment="Center">
             <Label.Effect>
                 <DropShadowEffect Color="#FF00FFF3" BlurRadius="20" Direction="0" ShadowDepth="0"/>
             </Label.Effect>
         </Label>
-        <Canvas Height="268" Canvas.Top="65" Width="373" Canvas.Left="8">
+        <Canvas Height="268" Canvas.Top="75" Width="373" Canvas.Left="8">
             <Canvas.Resources>
                 <Style TargetType="{x:Type Label}">
                     <Setter Property="FontSize" Value="11"/>
@@ -347,7 +325,7 @@
                 <SolidColorBrush Color="White" Opacity="0.1"/>
             </Canvas.Background>
 
-            <TextBox x:Name="tbTestLog" Height="215" Canvas.Left="8" TextWrapping="Wrap" Canvas.Top="33" Width="352" BorderBrush="{x:Null}" Foreground="White" Background="{x:Null}" VerticalScrollBarVisibility="Auto" SelectionBrush="{x:Null}" BorderThickness="0" CaretBrush="{x:Null}" IsReadOnly="True" FontSize="14" TextChanged="tbTestLog_TextChanged" Text="{Binding TestLog}">
+            <TextBox x:Name="tbTestLog" Height="215" Canvas.Left="8" TextWrapping="Wrap" Canvas.Top="33" Width="352" BorderBrush="{x:Null}" Foreground="White" Background="{x:Null}" VerticalScrollBarVisibility="Auto" SelectionBrush="{x:Null}" BorderThickness="0" CaretBrush="{x:Null}" IsReadOnly="True" FontSize="18" TextChanged="tbTestLog_TextChanged" Text="{Binding TestLog}">
                 <TextBox.Effect>
                     <DropShadowEffect Color="#FF00E8FF" BlurRadius="15" Direction="0" ShadowDepth="0"/>
                 </TextBox.Effect>
@@ -358,30 +336,9 @@
                     <DropShadowEffect Color="#FF09A0F7" Direction="0" ShadowDepth="0" BlurRadius="20"/>
                 </Label.Effect>
             </Label>
-            <Label x:Name="tbTestTime" Content="{Binding TestTime}" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="63" Canvas.Left="297" FontSize="18" Foreground="White" FontFamily="Segoe UI Light" Padding="0" Canvas.Top="4"/>
-            <Label x:Name="labelStateRetry" Content="リトライ" Height="20" Canvas.Left="222" Width="59" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1" Canvas.Top="5" Background="#FF0C92F0" Visibility="{Binding RetryLabelVis}"/>
         </Canvas>
 
-
-        <Canvas x:Name="canvasDecision" Height="326" Canvas.Top="338" Width="378" Canvas.Left="-3">
-            <Label x:Name="label判定" Height="128" Width="245" FontSize="94" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Foreground="{Binding Colorlabel判定}" Effect="{Binding ColorDecision}" Visibility="{Binding DecisionVisibility}" Margin="0" HorizontalAlignment="Center" Canvas.Left="65" Background="{x:Null}" VerticalAlignment="Top" Content="{Binding Decision}" HorizontalContentAlignment="Center" Canvas.Top="55">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="1.5" ScaleY="1.8"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform X="1.2"/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-            </Label>
-            <Canvas x:Name="stackPanelErrInfo" Canvas.Top="238" Visibility="{Binding ErrInfoVisibility}" RenderTransformOrigin="0.5,0.5" Height="87" Width="370" Canvas.Left="8">
-                <Label x:Name="labelエラー情報" Content="{Binding FailInfo}" FontSize="14" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Foreground="White" VerticalContentAlignment="Center" Effect="{Binding ColorDecision}" Height="26" Width="360"/>
-                <Label x:Name="label規格値" Content="{Binding Spec}" FontSize="14" FontStyle="Italic" Foreground="White" VerticalContentAlignment="Center" Effect="{Binding ColorDecision}" Height="27" Width="360" Canvas.Top="26" />
-                <Label x:Name="label計測値" Content="{Binding MeasValue}" FontSize="14" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Foreground="White" VerticalContentAlignment="Center" Effect="{Binding ColorDecision}" Height="26" Width="360" Canvas.Top="56" />
-            </Canvas>
-        </Canvas>
-
-        <Canvas x:Name="canvasTestSetting" Height="60" Canvas.Left="656" Canvas.Top="65" Width="433" IsEnabled="{Binding TestSettingEnable}">
+        <Canvas x:Name="canvasTestSetting" Height="60" Canvas.Left="656" Canvas.Top="75" Width="433" IsEnabled="{Binding TestSettingEnable}">
             <Canvas.Background>
                 <SolidColorBrush Color="White" Opacity="0.1"/>
             </Canvas.Background>
@@ -392,38 +349,12 @@
             <CheckBox x:Name="CheckBoxWriteFw" Content="検査ソフト書き込みパス" Height="27" Width="138" Background="White" Foreground="#FFFDFDFD" Canvas.Left="7" IsChecked="{Binding CheckWriteTestFwPass}" Canvas.Top="23"/>
             <TextBlock TextWrapping="Wrap" Text="テストオプション" FontSize="16" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="138" RenderTransformOrigin="0.5,0.5" Canvas.Top="2" Canvas.Left="7"/>
         </Canvas>
-        <Canvas x:Name="canvasRing" Width="260" Height="260" Canvas.Left="65"  Opacity="{Binding RingOpacity}" Visibility="{Binding RingVisibility}" RenderTransformOrigin="0.5,0.5" Canvas.Top="368">
-
-            <ed:Arc x:Name="ProgressBack" ArcThickness="2" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF758C99"  Canvas.Left="7" Stretch="None" StartAngle="0" Canvas.Top="6" Width="240" Height="240" Opacity="0.3"/>
-
-            <ed:Arc x:Name="ProgressRing" ArcThickness="2" ArcThicknessUnit="Pixel" Fill="#FFFBFBFB" Width="240" Height="240" Canvas.Left="7" Stretch="None" 
-				StartAngle="0" EndAngle="{Binding 進捗度, Converter={StaticResource AngleConverter}}" Canvas.Top="6">
-                <ed:Arc.Effect>
-                    <DropShadowEffect Color="#FF0072FB" Direction="0" ShadowDepth="0" BlurRadius="60"/>
-                </ed:Arc.Effect>
-
-            </ed:Arc>
-            <Label x:Name="labelProgress" Content="{Binding 進捗度, Converter={StaticResource ProgConverter}}" Canvas.Left="44" Canvas.Top="58" FontSize="60" RenderTransformOrigin="0.432,0.208" Width="166" HorizontalContentAlignment="Center" Height="100" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0">
-                <Label.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleY="1.4"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Label.RenderTransform>
-                <Label.Effect>
-                    <DropShadowEffect Color="#FF0BF0FB" BlurRadius="20" Direction="0" ShadowDepth="0"/>
-                </Label.Effect>
-            </Label>
-
-        </Canvas>
-        <Label Content="" Height="1" Canvas.Left="9" Canvas.Top="58" Width="1324" Background="#FF0388F7">
+        <Label Content="" Height="1" Canvas.Left="9" Canvas.Top="68" Width="1324" Background="#FF0388F7">
             <Label.Effect>
                 <DropShadowEffect Color="#FF09A0F7" Direction="0" ShadowDepth="0" BlurRadius="20"/>
             </Label.Effect>
         </Label>
-        <Canvas x:Name="CanvasComm" Height="111" Canvas.Left="386" Canvas.Top="132" Width="473">
+        <Canvas x:Name="CanvasComm" Height="111" Canvas.Left="386" Canvas.Top="144" Width="473">
             <Canvas.Resources>
                 <Style TargetType="{x:Type Label}">
                     <Setter Property="FontSize" Value="11"/>
@@ -541,12 +472,12 @@
 
             <!-- ImageのWidthとHeightを個別に設定しないとUniformToFillが無効になります！！！ -->
         </Canvas>
-        <Button x:Name="ButtonStop" Content="強制停止" Controls:ControlsHelper.ContentCharacterCasing="Normal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="56" Width="208" BorderBrush="#FFABD6EA" FontSize="22" Canvas.Left="1112" Style="{DynamicResource AccentedSquareButtonStyle}" BorderThickness="1" ClipToBounds="True" Canvas.Top="69" RenderTransformOrigin="11.977,3.9" FontFamily="Segoe UI Light" Click="ButtonStop_Click" Opacity="{Binding StopButtonVis}" IsEnabled="{Binding StopButtonEnable}" >
+        <Button x:Name="ButtonStop" Content="強制停止" Controls:ControlsHelper.ContentCharacterCasing="Normal" HorizontalAlignment="Center" VerticalAlignment="Center" Height="56" Width="208" BorderBrush="#FFABD6EA" FontSize="22" Canvas.Left="1111" Style="{DynamicResource AccentedSquareButtonStyle}" BorderThickness="1" ClipToBounds="True" Canvas.Top="74" RenderTransformOrigin="11.977,3.9" FontFamily="Segoe UI Light" Click="ButtonStop_Click" Opacity="{Binding StopButtonVis}" IsEnabled="{Binding StopButtonEnable}" >
             <Button.Background>
                 <SolidColorBrush Color="#FF125191" Opacity="0.6"/>
             </Button.Background>
         </Button>
-        <Canvas x:Name="CanvasComm_Copy" Height="81" Canvas.Left="387" Canvas.Top="252" Width="472">
+        <Canvas x:Name="CanvasComm_Copy" Height="72" Canvas.Left="387" Canvas.Top="262" Width="472">
             <Canvas.Resources>
                 <Style TargetType="{x:Type Label}">
                     <Setter Property="FontSize" Value="18"/>
@@ -601,6 +532,71 @@
                     <DropShadowEffect Color="#FF09A0F7" Direction="0" ShadowDepth="0" BlurRadius="20"/>
                 </Label.Effect>
             </Label>
+        </Canvas>
+        <Canvas x:Name="canvasDecision" Height="326" Canvas.Top="338" Width="378" Canvas.Left="-3">
+            <Label x:Name="label判定" Height="128" Width="245" FontSize="94" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Foreground="{Binding Colorlabel判定}" Effect="{Binding ColorDecision}" Visibility="{Binding DecisionVisibility}" Margin="0" HorizontalAlignment="Center" Canvas.Left="65" Background="{x:Null}" VerticalAlignment="Top" Content="{Binding Decision}" HorizontalContentAlignment="Center" Canvas.Top="55">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1.5" ScaleY="1.8"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform X="1.2"/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Canvas x:Name="stackPanelErrInfo" Canvas.Top="238" Visibility="{Binding ErrInfoVisibility}" RenderTransformOrigin="0.5,0.5" Height="87" Width="370" Canvas.Left="8">
+                <Label x:Name="labelエラー情報" Content="{Binding FailInfo}" FontSize="14" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Foreground="White" VerticalContentAlignment="Center" Effect="{Binding ColorDecision}" Height="26" Width="360"/>
+                <Label x:Name="label規格値" Content="{Binding Spec}" FontSize="14" FontStyle="Italic" Foreground="White" VerticalContentAlignment="Center" Effect="{Binding ColorDecision}" Height="27" Width="360" Canvas.Top="26" />
+                <Label x:Name="label計測値" Content="{Binding MeasValue}" FontSize="14" FontStyle="Italic" RenderTransformOrigin="0.5,0.5" Foreground="White" VerticalContentAlignment="Center" Effect="{Binding ColorDecision}" Height="26" Width="360" Canvas.Top="56" />
+            </Canvas>
+        </Canvas>
+        <Canvas x:Name="canvasRing" Width="260" Height="260" Canvas.Left="65"  Opacity="{Binding RingOpacity}" Visibility="{Binding RingVisibility}" RenderTransformOrigin="0.5,0.5" Canvas.Top="368">
+
+            <ed:Arc x:Name="ProgressBack" ArcThickness="2" ArcThicknessUnit="Pixel" EndAngle="360" Fill="#FF758C99"  Canvas.Left="7" Stretch="None" StartAngle="0" Canvas.Top="6" Width="240" Height="240" Opacity="0.3"/>
+
+            <ed:Arc x:Name="ProgressRing" ArcThickness="2" ArcThicknessUnit="Pixel" Fill="#FFFBFBFB" Width="240" Height="240" Canvas.Left="7" Stretch="None" 
+                StartAngle="0" EndAngle="{Binding 進捗度, Converter={StaticResource AngleConverter}}" Canvas.Top="6">
+                <ed:Arc.Effect>
+                    <DropShadowEffect Color="#FF0072FB" Direction="0" ShadowDepth="0" BlurRadius="60"/>
+                </ed:Arc.Effect>
+
+            </ed:Arc>
+            <Label x:Name="labelProgress" Content="{Binding 進捗度, Converter={StaticResource ProgConverter}}" Canvas.Left="10" Canvas.Top="40" FontSize="52" RenderTransformOrigin="0.432,0.208" Width="236" HorizontalContentAlignment="Center" Height="71" FontFamily="Segoe UI Light" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center" Padding="0">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="1.4"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Rectangle Fill="#FFF4F4F5" Height="1" Canvas.Left="19" Canvas.Top="126" Width="215"/>
+            <Label x:Name="labelStateRetry1" Content="リトライ" Height="27" Canvas.Left="44" Width="58" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderThickness="1" Canvas.Top="170" Background="#FF0C92F0" Visibility="{Binding RetryLabelVis}"/>
+            <Label x:Name="tbTestTime1" Content="{Binding TestTime}" HorizontalAlignment="Left" VerticalAlignment="Center" Height="38" Width="100" Canvas.Left="19" FontSize="30" Foreground="White" FontFamily="Segoe UI Light" Padding="0" Canvas.Top="124" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBlock x:Name="textBlock2_Copy14" TextWrapping="Wrap" Text="合格" FontSize="18" Foreground="#FF0DB2FF" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="38" RenderTransformOrigin="0.5,0.5" Canvas.Top="135" Canvas.Left="134">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <Label x:Name="labelStateRetry_Copy2" Height="32" Canvas.Left="172" Canvas.Top="129" Width="49" VerticalContentAlignment="Center" BorderThickness="1" BorderBrush="{x:Null}" FontSize="18" HorizontalContentAlignment="Center" Content="{Binding OkCount}"/>
+            <TextBlock x:Name="textBlock2_Copy15" TextWrapping="Wrap" Text="不合格" FontSize="18" Foreground="#FFBF08AF" HorizontalAlignment="Left" VerticalAlignment="Center" Height="21" Width="54" RenderTransformOrigin="0.5,0.5" Canvas.Top="167" Canvas.Left="119">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <Label x:Name="labelStateRetry_Copy3" Height="34" Canvas.Left="172" Canvas.Top="161" Width="50" VerticalContentAlignment="Center" BorderThickness="1" BorderBrush="{x:Null}" FontSize="18" HorizontalContentAlignment="Center" Content="{Binding NgCount}"/>
+
         </Canvas>
 
 

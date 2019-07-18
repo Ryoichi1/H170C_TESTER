@@ -14,7 +14,7 @@ namespace H170C_Tester
         private NavigationService naviCamera1;
         private NavigationService naviCamera2;
         Uri uriThemePage = new Uri("Page/Config/Theme.xaml", UriKind.Relative);
-        Uri uriMentePage = new Uri("Page/Config/Mente.xaml", UriKind.Relative);
+        Uri uriMentePage = new Uri("Page/Config/Mainte.xaml", UriKind.Relative);
         Uri uriCamera1Page = new Uri("Page/Config/Camera1Conf.xaml", UriKind.Relative);
         Uri uriCamera2Page = new Uri("Page/Config/Camera2Conf.xaml", UriKind.Relative);
 

@@ -94,6 +94,7 @@ namespace H170C_Tester
 
                 if (Flags.OtherPage)
                 {
+
                     Flags.PressOpenCheckBeforeTest = true;
                     return;
                 }
@@ -182,12 +183,12 @@ namespace H170C_Tester
             {
                 //IO初期化
                 General.ResetIo();
-                Thread.Sleep(400);
+                await Task.Delay(400);
 
 
                 foreach (var d in テスト項目最新.Select((s, i) => new { i, s }))
                 {
-                Retry:
+                    Retry:
                     State.VmTestStatus.Spec = "規格値 : ---";
                     State.VmTestStatus.MeasValue = "計測値 : ---";
                     Flags.AddDecision = true;
@@ -198,24 +199,24 @@ namespace H170C_Tester
                     {
                         if (!Flags.PowOn)
                         {
-                            Thread.Sleep(100);
-                            General.PowSupply(true);
+                            await Task.Delay(100);
+                            await General.PowSupplyAsync(true);
                         }
                     }
                     else
                     {
-                        General.PowSupply(false);
+                        await General.PowSupplyAsync(false);
                         await Task.Delay(100);
                     }
 
                     switch (d.s.Key)
                     {
                         case 100://GND1 未ハンダチェック
-                            if (TestHarness.CheckGnd(TestHarness.NAME.GND1)) break;
+                            if (await TestHarness.CheckGnd(TestHarness.NAME.GND1)) break;
                             goto case 5000;
 
                         case 101://GND2 未ハンダチェック
-                            if (TestHarness.CheckGnd(TestHarness.NAME.GND2)) break;
+                            if (await TestHarness.CheckGnd(TestHarness.NAME.GND2)) break;
                             goto case 5000;
 
                         case 200://テストプログラム書き込み
@@ -274,13 +275,9 @@ namespace H170C_Tester
                             FailStepNo = d.s.Key;
                             FailTitle = d.s.Value;
 
-                            General.PowSupply(false);
+                            await General.PowSupplyAsync(false);
                             General.ResetIo();
                             State.VmTestStatus.IsActiveRing = false;//リング表示してる可能性があるので念のため消す処理
-
-                            //await General.cam1.Stop();
-                            //await General.cam2.Stop();
-
 
                             if (Flags.ClickStopButton) goto FAIL;
 
@@ -391,8 +388,8 @@ namespace H170C_Tester
 
                 return;
 
-            //不合格時の処理
-            FAIL:
+                //不合格時の処理
+                FAIL:
 
                 //強制停止ボタンの設定
                 await General.ShowStopButton(false);
@@ -400,7 +397,7 @@ namespace H170C_Tester
 
                 General.ResetIo();
                 await Task.Delay(500);
-            FAIL_DATA_SAVE:
+                FAIL_DATA_SAVE:
 
 
                 FlagTestTime = false;
@@ -464,6 +461,9 @@ namespace H170C_Tester
 
                 General.cam1.ResetFlag();
                 General.cam2.ResetFlag();
+                await General.cam1.Stop();
+                await General.cam2.Stop();
+
 
                 General.ResetViewModel();
                 RefreshDataContext();

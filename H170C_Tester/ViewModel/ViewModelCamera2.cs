@@ -1,4 +1,5 @@
 ﻿using Microsoft.Practices.Prism.Mvvm;
+using System.Windows.Media;
 
 namespace H170C_Tester
 {
@@ -91,6 +92,156 @@ namespace H170C_Tester
 
         private string _LED14LumB;
         public string LED14LumB { get { return _LED14LumB; } set { SetProperty(ref _LED14LumB, value); } }
+
+
+
+
+        //色相赤
+        private string _HueLed8R;
+        public string HueLed8R { get { return _HueLed8R; } set { SetProperty(ref _HueLed8R, value); } }
+
+        private Brush _ColLed8R;
+        public Brush ColLed8R { get { return _ColLed8R; } set { SetProperty(ref _ColLed8R, value); } }
+
+        private string _HueLed9R;
+        public string HueLed9R { get { return _HueLed9R; } set { SetProperty(ref _HueLed9R, value); } }
+
+        private Brush _ColLed9R;
+        public Brush ColLed9R { get { return _ColLed9R; } set { SetProperty(ref _ColLed9R, value); } }
+
+        private string _HueLed10R;
+        public string HueLed10R { get { return _HueLed10R; } set { SetProperty(ref _HueLed10R, value); } }
+
+        private Brush _ColLed10R;
+        public Brush ColLed10R { get { return _ColLed10R; } set { SetProperty(ref _ColLed10R, value); } }
+
+        private string _HueLed11R;
+        public string HueLed11R { get { return _HueLed11R; } set { SetProperty(ref _HueLed11R, value); } }
+
+        private Brush _ColLed11R;
+        public Brush ColLed11R { get { return _ColLed11R; } set { SetProperty(ref _ColLed11R, value); } }
+
+        private string _HueLed12R;
+        public string HueLed12R { get { return _HueLed12R; } set { SetProperty(ref _HueLed12R, value); } }
+
+        private Brush _ColLed12R;
+        public Brush ColLed12R { get { return _ColLed12R; } set { SetProperty(ref _ColLed12R, value); } }
+
+        private string _HueLed13R;
+        public string HueLed13R { get { return _HueLed13R; } set { SetProperty(ref _HueLed13R, value); } }
+
+        private Brush _ColLed13R;
+        public Brush ColLed13R { get { return _ColLed13R; } set { SetProperty(ref _ColLed13R, value); } }
+
+        private string _HueLed14R;
+        public string HueLed14R { get { return _HueLed14R; } set { SetProperty(ref _HueLed14R, value); } }
+
+        private Brush _ColLed14R;
+        public Brush ColLed14R { get { return _ColLed14R; } set { SetProperty(ref _ColLed14R, value); } }
+
+
+        //色相緑
+        private string _HueLed8G;
+        public string HueLed8G { get { return _HueLed8G; } set { SetProperty(ref _HueLed8G, value); } }
+
+        private Brush _ColLed8G;
+        public Brush ColLed8G { get { return _ColLed8G; } set { SetProperty(ref _ColLed8G, value); } }
+
+        private string _HueLed9G;
+        public string HueLed9G { get { return _HueLed9G; } set { SetProperty(ref _HueLed9G, value); } }
+
+        private Brush _ColLed9G;
+        public Brush ColLed9G { get { return _ColLed9G; } set { SetProperty(ref _ColLed9G, value); } }
+
+        private string _HueLed10G;
+        public string HueLed10G { get { return _HueLed10G; } set { SetProperty(ref _HueLed10G, value); } }
+
+        private Brush _ColLed10G;
+        public Brush ColLed10G { get { return _ColLed10G; } set { SetProperty(ref _ColLed10G, value); } }
+
+        private string _HueLed11G;
+        public string HueLed11G { get { return _HueLed11G; } set { SetProperty(ref _HueLed11G, value); } }
+
+        private Brush _ColLed11G;
+        public Brush ColLed11G { get { return _ColLed11G; } set { SetProperty(ref _ColLed11G, value); } }
+
+        private string _HueLed12G;
+        public string HueLed12G { get { return _HueLed12G; } set { SetProperty(ref _HueLed12G, value); } }
+
+        private Brush _ColLed12G;
+        public Brush ColLed12G { get { return _ColLed12G; } set { SetProperty(ref _ColLed12G, value); } }
+
+        private string _HueLed13G;
+        public string HueLed13G { get { return _HueLed13G; } set { SetProperty(ref _HueLed13G, value); } }
+
+        private Brush _ColLed13G;
+        public Brush ColLed13G { get { return _ColLed13G; } set { SetProperty(ref _ColLed13G, value); } }
+
+        private string _HueLed14G;
+        public string HueLed14G { get { return _HueLed14G; } set { SetProperty(ref _HueLed14G, value); } }
+
+        private Brush _ColLed14G;
+        public Brush ColLed14G { get { return _ColLed14G; } set { SetProperty(ref _ColLed14G, value); } }
+
+
+        //色相青
+        private string _HueLed8B;
+        public string HueLed8B { get { return _HueLed8B; } set { SetProperty(ref _HueLed8B, value); } }
+
+        private Brush _ColLed8B;
+        public Brush ColLed8B { get { return _ColLed8B; } set { SetProperty(ref _ColLed8B, value); } }
+
+        private string _HueLed9B;
+        public string HueLed9B { get { return _HueLed9B; } set { SetProperty(ref _HueLed9B, value); } }
+
+        private Brush _ColLed9B;
+        public Brush ColLed9B { get { return _ColLed9B; } set { SetProperty(ref _ColLed9B, value); } }
+
+        private string _HueLed10B;
+        public string HueLed10B { get { return _HueLed10B; } set { SetProperty(ref _HueLed10B, value); } }
+
+        private Brush _ColLed10B;
+        public Brush ColLed10B { get { return _ColLed10B; } set { SetProperty(ref _ColLed10B, value); } }
+
+        private string _HueLed11B;
+        public string HueLed11B { get { return _HueLed11B; } set { SetProperty(ref _HueLed11B, value); } }
+
+        private Brush _ColLed11B;
+        public Brush ColLed11B { get { return _ColLed11B; } set { SetProperty(ref _ColLed11B, value); } }
+
+        private string _HueLed12B;
+        public string HueLed12B { get { return _HueLed12B; } set { SetProperty(ref _HueLed12B, value); } }
+
+        private Brush _ColLed12B;
+        public Brush ColLed12B { get { return _ColLed12B; } set { SetProperty(ref _ColLed12B, value); } }
+
+        private string _HueLed13B;
+        public string HueLed13B { get { return _HueLed13B; } set { SetProperty(ref _HueLed13B, value); } }
+
+        private Brush _ColLed13B;
+        public Brush ColLed13B { get { return _ColLed13B; } set { SetProperty(ref _ColLed13B, value); } }
+
+        private string _HueLed14B;
+        public string HueLed14B { get { return _HueLed14B; } set { SetProperty(ref _HueLed14B, value); } }
+
+        private Brush _ColLed14B;
+        public Brush ColLed14B { get { return _ColLed14B; } set { SetProperty(ref _ColLed14B, value); } }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 }

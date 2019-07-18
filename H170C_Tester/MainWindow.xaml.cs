@@ -131,7 +131,6 @@ namespace H170C_Tester
             if (index == 0)
             {
                 Flags.OtherPage = false;//フラグを初期化しておく
-
                 App._naviConf.Refresh();
                 App._naviHelp.Refresh();
                 App._naviTest.Navigate(uriTestPage);

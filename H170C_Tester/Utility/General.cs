@@ -377,11 +377,9 @@ namespace H170C_Tester
             }
 
             Flags.PowOn = sw;
-
         }
 
-
-
+        public static async Task PowSupplyAsync(bool sw) => await Task.Run(() => { PowSupply(sw); });
 
 
 

@@ -21,8 +21,8 @@ namespace H170C_Tester
         public int BlueHueMax { get; set; }
         public int BlueHueMin { get; set; }
 
-
-
+        //輝度公差
+        public double ErrLum { get; set; }
 
     }
 }
