@@ -33,7 +33,7 @@ namespace H170C_Tester
                     if (!result)
                     {
                         State.VmTestStatus.Spec = "規格値 : ";
-                        State.VmTestStatus.MeasValue = "計測値 : 未半田 or 誤配線DEATH!!!";
+                        State.VmTestStatus.MeasValue = "計測値 : 未半田 or 誤配線";
                     }
 
                 }

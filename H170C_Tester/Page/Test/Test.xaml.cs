@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -81,7 +82,7 @@ namespace H170C_Tester
                 //強制停止ボタンの設定
                 State.VmTestStatus.StopButtonEnable = false;
                 State.VmTestStatus.StopButtonVis = 0.0;
-
+                await Task.Delay(1000);
                 await State.testCommand.StartCheck();
             }
         }

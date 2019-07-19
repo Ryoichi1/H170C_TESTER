@@ -41,7 +41,7 @@ namespace H170C_Tester
         public const double OpacityImgMin = 0.0;
 
         //リトライ回数
-        public static readonly int RetryCount = 0;
+        public static readonly int RetryCount = 1;
 
 
 

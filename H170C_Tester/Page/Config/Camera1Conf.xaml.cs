@@ -28,7 +28,7 @@ namespace H170C_Tester
 
         private async void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Flags.EnableStartCheck = false;
+            Flags.EnableCam1ConfPage = false;
             labelMess.Opacity = 0;
             tbPoint.Visibility = System.Windows.Visibility.Hidden;
             tbHsv.Visibility = System.Windows.Visibility.Hidden;
@@ -64,7 +64,7 @@ namespace H170C_Tester
                 return;
             await General.cam1.Stop();
             State.SetCam1Prop();
-            Flags.EnableStartCheck = true;
+            Flags.EnableCam1ConfPage = true;
         }
 
         private void resetView()
@@ -244,7 +244,7 @@ namespace H170C_Tester
         bool RedOn;
         private async void buttonRed_Click(object sender, RoutedEventArgs e)
         {
-            if (BlueOn || GreenOn || FlagLabeling)
+            if (BlueOn || GreenOn || FlagLabeling || ShowHue)
                 return;
 
             if (!General.CheckPress())
@@ -281,7 +281,7 @@ namespace H170C_Tester
         bool BlueOn;
         private async void buttonBlue_Click(object sender, RoutedEventArgs e)
         {
-            if (RedOn || GreenOn || FlagLabeling)
+            if (RedOn || GreenOn || FlagLabeling || ShowHue)
                 return;
 
             if (!General.CheckPress())
@@ -317,7 +317,7 @@ namespace H170C_Tester
         bool GreenOn;
         private async void buttonGreen_Click(object sender, RoutedEventArgs e)
         {
-            if (RedOn || BlueOn || FlagLabeling)
+            if (RedOn || BlueOn || FlagLabeling || ShowHue)
                 return;
 
             if (!General.CheckPress())
@@ -478,8 +478,10 @@ namespace H170C_Tester
             if (!RedOn && !GreenOn && !BlueOn)
                 return;
 
+
             FlagLabeling = !FlagLabeling;
 
+            buttonHue.IsEnabled = !FlagLabeling;
             buttonLabeling.Background = FlagLabeling ? General.OnBrush : General.OffBrush;
 
             if (FlagLabeling)
@@ -705,6 +707,9 @@ namespace H170C_Tester
 
         private void ButtonHue_Click(object sender, RoutedEventArgs e)
         {
+
+            if (!RedOn && !GreenOn && !BlueOn)
+                return;
 
             ShowHue = !ShowHue;
 

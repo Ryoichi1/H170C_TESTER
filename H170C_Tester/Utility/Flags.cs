@@ -26,7 +26,18 @@ namespace H170C_Tester
 
 
         public static bool PressOpenCheckBeforeTest { get; set; }
-        public static bool EnableStartCheck { get; set; }
+
+        public static bool EnableStartCheck
+        {
+            get
+            {
+                return EnableCam1ConfPage && EnableCam2ConfPage && EnableMaintePage;
+            }
+        }
+        public static bool EnableCam1ConfPage { get; set; }
+        public static bool EnableCam2ConfPage { get; set; }
+        public static bool EnableMaintePage { get; set; }
+
 
         private static SolidColorBrush RetryPanelBrush = new SolidColorBrush();
         private static SolidColorBrush StatePanelOkBrush = new SolidColorBrush();

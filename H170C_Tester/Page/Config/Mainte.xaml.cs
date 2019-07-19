@@ -29,7 +29,7 @@ namespace H170C_Tester
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Flags.EnableStartCheck = false;
+            Flags.EnableMaintePage = false;
             State.VmComm.LPC1768_RX = "";
             State.VmComm.LPC1768_TX = "";
             State.VmComm.TARGET_RX = "";
@@ -45,7 +45,7 @@ namespace H170C_Tester
             {
                 General.PowSupply(false);
             });
-            Flags.EnableStartCheck = true;
+            Flags.EnableMaintePage = true;
         }
 
 
