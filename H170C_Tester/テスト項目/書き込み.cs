@@ -25,7 +25,7 @@ namespace H170C_Tester
 
                 await Task.Delay(400);
 
-                if (!await FDT.WriteFirmware(Constants.RwsPath_Test)) return false;
+                if (!await FDT.WriteFirmware(Path)) return false;
 
                 if (mode == WriteMode.TEST)
                 {

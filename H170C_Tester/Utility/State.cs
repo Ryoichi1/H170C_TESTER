@@ -70,7 +70,7 @@ namespace H170C_Tester
             new TestSpecs(501, "セクション2 緑色チェック", true),
             new TestSpecs(502, "セクション2 青色チェック", true),
 
-            //new TestSpecs(600, "製品ソフト書き込み", false),
+            new TestSpecs(600, "製品ソフト書き込み", false),
         };
 
         //個別設定のロード
